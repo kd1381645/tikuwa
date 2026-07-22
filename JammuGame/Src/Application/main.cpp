@@ -59,6 +59,7 @@ void Application::KdPostUpdate()
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 void Application::PreUpdate()
 {
+	Mouse::Instance().Update();
 	SceneManager::Instance().PreUpdate();
 }
 
@@ -329,6 +330,7 @@ void Application::Execute()
 		//
 		//=========================================
 
+		Time::Instance().UpdateTime();
 		m_fpsController.Update();
 	}
 
