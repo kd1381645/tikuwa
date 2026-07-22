@@ -4,6 +4,8 @@
 #include "TitleScene/TitleScene.h"
 #include "GameScene/GameScene.h"
 
+//HelloCommit
+
 void SceneManager::PreUpdate()
 {
 	// シーン切替
