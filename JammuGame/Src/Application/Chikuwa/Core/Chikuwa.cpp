@@ -7,6 +7,9 @@ void Chikuwa::Init()
 	m_tex = RES_MGR.GetTexList()->GetTex("TestChikuwa");
 	SetPos({0,0,0});
 	m_isActive = true;
+
+	//削除処理
+	Time::Instance().DelayCall(5, [&]() {m_isActive = false; }, false);
 }
 
 void Chikuwa::Update()

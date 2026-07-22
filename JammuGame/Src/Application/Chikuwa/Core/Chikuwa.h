@@ -13,6 +13,10 @@ public:
 
 	bool IsActive() { return m_isActive; }
 
+	void Destory() { m_isActive = false; }
+
+	const Math::Vector2& GetPos(){ return m_pos; }
+
 private:
 
 	std::weak_ptr<KdGameObject> m_wpTarget;
