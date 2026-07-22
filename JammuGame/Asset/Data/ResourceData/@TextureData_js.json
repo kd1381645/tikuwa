@@ -1,5 +1,14 @@
 {
     "Cursor": {
         "fileName": "Cursor"
+    },
+    "Reticle": {
+        "fileName": "Reticle"
+    },
+    "TestChikuwa": {
+        "fileName": "TestChikuwa"
+    },
+    "TestIsobe": {
+        "fileName": "TestIsobe"
     }
 }

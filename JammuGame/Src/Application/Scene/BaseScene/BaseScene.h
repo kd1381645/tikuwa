@@ -8,12 +8,12 @@ public :
 	virtual ~BaseScene() {}
 
 	void PreUpdate();
-	void Update();
-	void PostUpdate();
+	virtual void Update();
+	virtual void PostUpdate();
 
 	void PreDraw();
 	void Draw();
-	void DrawSprite();
+	virtual void DrawSprite();
 	void DrawDebug();
 
 	virtual void Enter() {};
