@@ -3,17 +3,19 @@
 
 void ChikuwaManager::Init()
 {
-	Spown();
 }
 
 void ChikuwaManager::Update()
 {
+	if (m_spownTime < kSpownTime)m_spownTime++;
+	else
+	{
+		Spown();
+		m_spownTime = KdRandom::GetInt(0,kSpownTime - 1);
+	}
 
 	if (Mouse::Instance().IsClick()) 
 	{
-		Spown();
-
-		
 		//ちくわはじく処理
 		Math::Vector2 mousePos = Mouse::Instance().GetClickPos();
 		std::shared_ptr<Chikuwa> hit = nullptr;

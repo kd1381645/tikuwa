@@ -20,12 +20,17 @@ public:
 
 private:
 
+	const int kChikuwaTime = 5 * 60;
+	int m_chikuwaTime = 0;
+
 	std::weak_ptr<KdGameObject> m_wpTarget;
 
 	std::shared_ptr<KdTexture> m_tex;
 	Math::Vector2 m_pos;
 	Math::Vector2 m_move;
 	Math::Matrix  m_mat;
+
+	float m_speed = 10.0f; 
 
 	bool m_isGood;
 	bool m_isActive = true;

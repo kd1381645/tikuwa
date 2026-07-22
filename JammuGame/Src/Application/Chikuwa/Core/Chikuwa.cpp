@@ -6,17 +6,20 @@ void Chikuwa::Init()
 	//テクスチャ取得
 	if(m_isGood)m_tex = RES_MGR.GetTexList()->GetTex("TestChikuwa");
 	else m_tex = RES_MGR.GetTexList()->GetTex("TestIsobe");;
-	SetPos({0,0,0});
+	m_pos = {-720,KdRandom::GetFloat(-80.0f,80.0f),0};
 	m_isActive = true;
-
-	//削除処理
-	Time::Instance().DelayCall(5, [&]() {m_isActive = false; }, false);
 }
 
 void Chikuwa::Update()
 {
+	if (m_chikuwaTime < kChikuwaTime)m_chikuwaTime++;
+	else
+	{
+		m_isActive = false;
+	}
+
 	//移動処理
-	m_move += {KdRandom::GetFloat(-1.0f, 1.0f),KdRandom::GetFloat(-1.0f, 1.0f)};
+	m_move = {KdRandom::GetFloat(1.0f, 1.2f) * m_speed,0.0f};
 	m_pos += m_move;
 
 	//行列作成
