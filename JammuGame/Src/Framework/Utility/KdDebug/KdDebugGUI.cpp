@@ -80,6 +80,14 @@ void KdDebugGUI::GuiProcess()
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 }
 
+void KdDebugGUI::StartGui()
+{
+}
+
+void KdDebugGUI::EndGui()
+{
+}
+
 void KdDebugGUI::AddLog(const char* fmt,...)
 {
 	// 初期化されてないなら動作させない

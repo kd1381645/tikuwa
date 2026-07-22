@@ -9,8 +9,8 @@ void Mouse::Init()
 	m_gameMouse.x = 0.0f;
 	m_gameMouse.y = 0.0f;
 
-	m_mouseTex = RES_MGR.GetTexList()->GetTex("Cursor");
-	m_reticleTex = RES_MGR.GetTexList()->GetTex("Reticle");
+	//m_mouseTex = RES_MGR.GetTexList()->GetTex("Cursor");
+	//m_reticleTex = RES_MGR.GetTexList()->GetTex("Reticle");
 }
 
 void Mouse::Update()

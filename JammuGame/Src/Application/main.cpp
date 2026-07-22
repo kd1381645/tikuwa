@@ -128,7 +128,10 @@ void Application::PostDraw()
 	KdShaderManager::Instance().m_postProcessShader.PostEffectProcess();
 
 	// 現在のシーンのデバッグ描画
-	SceneManager::Instance().DrawDebug();
+	KdDebugGUI::Instance().GuiProcess();
+		//Time::Instance().renderPerformanceOverlay();
+		//SceneManager::Instance().DrawDebug();
+	
 }
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
@@ -221,6 +224,10 @@ bool Application::Init(int w, int h)
 	// 例えばカーソルを消したい場合
 	//ShowCursor(false);
 
+	RES_MGR.Init();
+	Mouse::Instance().Init();
+	CameraEffect::Instance().InitBuffer();
+	AudioManager::Instance().Init();
 	return true;
 }
 
