@@ -275,6 +275,7 @@
     <ClInclude Include="..\Library\tinygltf\tiny_gltf.h" />
     <ClInclude Include="Src\Application\GameSystem\Audio\AudioManager.h" />
     <ClInclude Include="Src\Application\GameSystem\Mouse\Mouse.h" />
+    <ClInclude Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.h" />
     <ClInclude Include="Src\Application\GameSystem\TimeSystem\TimeSystem.h" />
     <ClInclude Include="Src\Application\GameSystem\Transition\CameraEffect.h" />
     <ClInclude Include="Src\Application\GameSystem\Transition\Const\EffectConst.h" />
@@ -340,6 +341,7 @@
     <ClCompile Include="..\Library\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Src\Application\GameSystem\Audio\AudioManager.cpp" />
     <ClCompile Include="Src\Application\GameSystem\Mouse\Mouse.cpp" />
+    <ClCompile Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.cpp" />
     <ClCompile Include="Src\Application\GameSystem\TimeSystem\TimeSystem.cpp" />
     <ClCompile Include="Src\Application\GameSystem\Transition\CameraEffect.cpp" />
     <ClCompile Include="Src\Application\main.cpp" />
