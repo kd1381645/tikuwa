@@ -115,6 +115,9 @@ public:
 	void GuiInit(int w, int h);
 	void GuiProcess();
 
+	void StartGui();
+	void EndGui();
+
 	void AddLog(const char* fmt, ...);
 	void ClearLog();
 	
