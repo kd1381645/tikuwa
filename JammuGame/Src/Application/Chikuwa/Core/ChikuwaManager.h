@@ -20,5 +20,5 @@ public:
 private:
 
 	std::vector<std::shared_ptr<Chikuwa>> m_spChikuwaList = {};
-	int m_badConditonRate = 20;
+	int m_badConditonRate = 8;
 };

@@ -12,6 +12,7 @@ public:
 	void Draw();
 
 	bool IsActive() { return m_isActive; }
+	bool IsGood() { return m_isGood; }
 
 	void Destory() { m_isActive = false; }
 

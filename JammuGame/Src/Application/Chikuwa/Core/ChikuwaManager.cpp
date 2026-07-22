@@ -77,7 +77,7 @@ void ChikuwaManager::Spown()
 
 	//生成
 	bool isSpownGood = true;
-	if (0 <= spownRate)isSpownGood = false;
+	if (0 >= spownRate)isSpownGood = false;
 	auto newChikuwa = std::make_shared<Chikuwa>(isSpownGood);
 	newChikuwa->Init();
 	m_spChikuwaList.push_back(newChikuwa);
