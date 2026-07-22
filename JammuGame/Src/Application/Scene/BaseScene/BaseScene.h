@@ -16,6 +16,9 @@ public :
 	void DrawSprite();
 	void DrawDebug();
 
+	virtual void Enter() {};
+	virtual void Exit() {};
+
 	// オブジェクトリストを取得
 	const std::list<std::shared_ptr<KdGameObject>>& GetObjList()
 	{

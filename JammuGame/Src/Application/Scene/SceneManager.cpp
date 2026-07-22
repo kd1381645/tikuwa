@@ -4,15 +4,26 @@
 #include "TitleScene/TitleScene.h"
 #include "GameScene/GameScene.h"
 
-//HelloCommit
+SceneManager::SceneManager()
+{
+	Init();
+}
+void SceneManager::Init()
+{
+	//シーンの登録
+	m_sceneMap = {
+		{SceneType::Title,std::make_shared<TitleScene>()},
+		{SceneType::Game,std::make_shared<GameScene>()},
+	};
+
+	// 開始シーンに切り替え
+	ChangeScene();
+}
 
 void SceneManager::PreUpdate()
 {
 	// シーン切替
-	if (m_currentSceneType != m_nextSceneType)
-	{
-		ChangeScene(m_nextSceneType);
-	}
+	if (m_nextSceneType != m_nowSceneType)ChangeScene();
 
 	m_currentScene->PreUpdate();
 }
@@ -47,29 +58,15 @@ void SceneManager::DrawDebug()
 	m_currentScene->DrawDebug();
 }
 
-const std::list<std::shared_ptr<KdGameObject>>& SceneManager::GetObjList()
+void SceneManager::ChangeScene()
 {
-	return m_currentScene->GetObjList();
-}
+	//次のシーンを作成し、現在のシーンにする
+	//現在のシーンの後始末
+	if (m_currentScene)m_currentScene->Exit();
 
-void SceneManager::AddObject(const std::shared_ptr<KdGameObject>& _obj)
-{
-	m_currentScene->AddObject(_obj);
-}
+	//シーンの変更＆初期化
+	m_currentScene = m_sceneMap[m_nextSceneType];
+	m_currentScene->Enter();
 
-void SceneManager::ChangeScene(SceneType _sceneType)
-{
-	// 次のシーンを作成し、現在のシーンにする
-	switch (_sceneType)
-	{
-	case SceneType::Title:
-		m_currentScene = std::make_shared<TitleScene>();
-		break;
-	case SceneType::Game:
-		m_currentScene = std::make_shared<GameScene>();
-		break;
-	}
-
-	// 現在のシーン情報を更新
-	m_currentSceneType = _sceneType;
+	m_nowSceneType = m_nextSceneType;
 }
