@@ -2,66 +2,77 @@
 
 void ScoreSystem::Init()
 {
-	RES_MGR.GetDataList()->SetOnReload(Key::Highscore, [this](const nlohmann::json& _json) {
-		m_highscore.highscore = _json[Key::Highscore];
+	RES_MGR.GetDataList()->SetOnReload(Key::Score, [this](const nlohmann::json& _json) {
+		m_scoreSystemSettingData.timeScoreRate = _json["timeScoreRate"];
 		});
 
-	LoadSetting();
+	RES_MGR.GetDataList()->SetOnReload(Key::Highscore, [this](const nlohmann::json& _json) {
+		m_highscoreData.highscore = _json[Key::Highscore];
+		});
+
+	LoadScoreSetting();
 	LoadHighScore();
 
 	m_currentScore	= 0;
-	m_finalizeScore = 0;
+	m_finalScore	= 0;
 }
 
-void ScoreSystem::AddScore(int value)
+void ScoreSystem::AddScore(int scoreValue)
 {
-	m_currentScore += value;
+	m_currentScore += scoreValue;
 }
 
 void ScoreSystem::FinalizeScore()
 {
 	// 時間をそのまま使わずに、係数をかける
-	float timeMultiplier = Time::Instance().GetTime() * m_scoreSystemnte.timeScoreRate;
-	timeMultiplier = std::clamp(timeMultiplier, m_scoreSystemnte.minTimeMultiplier, m_scoreSystemnte.maxTimeMultiplier);
+	float timeMultiplier = Time::Instance().GetTime() * m_scoreSystemSettingData.timeScoreRate;
+	timeMultiplier = std::clamp(timeMultiplier, m_scoreSystemSettingData.minTimeMultiplier, m_scoreSystemSettingData.maxTimeMultiplier);
 	
 	// 最終的なスコア確定
-	m_finalizeScore = m_currentScore * timeMultiplier;
+	m_finalScore = m_currentScore * timeMultiplier;
 
 	// 最高スコア更新
-	if (m_finalizeScore > m_highscore.highscore)
+	if (m_finalScore > m_highscoreData.highscore)
 	{
-		m_highscore.highscore = m_finalizeScore;
+		m_highscoreData.highscore = m_finalScore;
 		SaveHighScore();
 	}
 }
 
-void ScoreSystem::HighScoreReset()
+void ScoreSystem::ResetScore()
 {
-	m_highscore.highscore = 0;
+	m_currentScore = 0;
+	m_finalScore = 0;
+}
+
+void ScoreSystem::ResetHighScore()
+{
+	m_highscoreData.highscore = 0;
 	SaveHighScore();
 }
 
-void ScoreSystem::LoadSetting()
+void ScoreSystem::LoadScoreSetting()
 {
 	RES_MGR.GetDataList()->Register(Path::Score, Key::Score);
-	m_scoreSystemnte = RES_MGR.GetDataList()->Get(Key::Score).get<_ScoreSystem>();
+	m_scoreSystemSettingData = RES_MGR.GetDataList()->Get(Key::Score).get<ScoreSystemSettingData>();
 }
 
 void ScoreSystem::LoadHighScore()
 {
 	RES_MGR.GetDataList()->Register(Path::Highscore, Key::Highscore);
-	m_highscore = RES_MGR.GetDataList()->Get(Key::Highscore).get<_Highscore>();
+	m_highscoreData = RES_MGR.GetDataList()->Get(Key::Highscore).get<HighscoreData>();
 }
 
 void ScoreSystem::SaveHighScore()
 {
 	// 最高スコア取得
 	json data = RES_MGR.GetDataList()->Get(Key::Highscore);
-	data[Key::Highscore] = m_highscore.highscore;
+	data[Key::Highscore] = m_highscoreData.highscore;
 
 	// jsonファイルを開いて書き込み
-	std::ofstream output_file(Key::SaveFilePath);
-	if (output_file.is_open()) {
+	std::ofstream output_file(Path::SaveFilePath);
+	if (output_file.is_open()) 
+	{
 		output_file << data.dump(4);
 		output_file.close();
 	}
