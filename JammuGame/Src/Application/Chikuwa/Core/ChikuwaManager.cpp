@@ -74,7 +74,7 @@ void ChikuwaManager::Update()
 			auto window = UIManager::Instance().Get<Window>("Window");
 			if (window)
 			{
-				window->ShowLine(hit->IsGood() ? "mistake" : "success");
+				window->ShowLine(hit->IsGood() ? "mistake" : hit->GetTypeName());
 			}
 		}
 	}
