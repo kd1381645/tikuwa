@@ -6,13 +6,19 @@ struct ScoreSystemSettingData
 	// 時間への係数
 	float timeScoreRate;
 
+	// スコアの下限値（カンスト処理用）
+	int minScore;
+
+	// スコアの上限値（カンスト処理用）
+	int maxScore;
+
 	// 時間への補正値の下限
 	float minTimeMultiplier;
 
 	// 時間への補正値の上限
 	float maxTimeMultiplier;
 
-	NLOHMANN_DEFINE_TYPE_INTRUSIVE(ScoreSystemSettingData, timeScoreRate, minTimeMultiplier, maxTimeMultiplier);
+	NLOHMANN_DEFINE_TYPE_INTRUSIVE(ScoreSystemSettingData, timeScoreRate, minScore, maxScore, minTimeMultiplier, maxTimeMultiplier);
 };
 
 // 最高スコア管理用
@@ -49,6 +55,12 @@ public:
 	// 最終的なスコア確定
 	void FinalizeScore();
 
+	// スコアリセット
+	void ResetScore();
+
+	// ハイスコアリセット
+	void ResetHighScore();
+
 	// 現在のスコア取得
 	int GetCurrentScore()	const	{ return m_currentScore; }
 
@@ -58,11 +70,19 @@ public:
 	// 最終的なスコア取得
 	int GetFinalScore()		const	{ return m_finalScore; }
 
-	// スコアリセット
-	void ResetScore();
+	bool PopIsNewRecord();
 
-	// ハイスコアリセット
-	void ResetHighScore();
+	// スコア変動時処理用コールバック
+	void SetOnScoreChanged(std::function<void(int currentScore, int addedValue)> callback)
+	{
+		m_onScoreChanged = callback;
+	}
+
+	// スコア最終確定時のコールバック
+	void SetOnScoreFinalized(std::function<void(int finalScore)> callback)
+	{
+		m_onScoreFinalized = callback;
+	}
 
 private:
 
@@ -72,8 +92,20 @@ private:
 	// 最終的なスコア
 	int m_finalScore;
 
+	// 新記録フラグ
+	bool m_isNewRecord;
+
+	// 基本設定
 	ScoreSystemSettingData	m_scoreSystemSettingData;
+
+	// 最高スコア管理用
 	HighscoreData			m_highscoreData;
+
+	// 確定前スコア変動時処理用
+	std::function<void(int currentScore, int addedValue)> m_onScoreChanged = nullptr;
+
+	// スコアの最終確定時通知用
+	std::function<void(int finalScore)> m_onScoreFinalized = nullptr;
 
 private:
 
