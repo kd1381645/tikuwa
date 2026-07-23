@@ -262,11 +262,10 @@
     <ClInclude Include="Src\Application\GameSystem\TimeSystem\TimeSystem.h" />
     <ClInclude Include="Src\Application\UI\IUIBase.h" />
     <ClInclude Include="Src\Application\UI\UIManager.h" />
-    <ClInclude Include="Src\Application\GameSystem\Transition\Const\EffectConst.h" />
-    <ClInclude Include="Src\Application\GameSystem\Transition\CameraEffect.h" />
     <ClInclude Include="Src\Application\Chikuwa\Core\Chikuwa.h" />
     <ClInclude Include="Src\Application\Chikuwa\Core\ChikuwaManager.h" />
     <ClInclude Include="Src\Application\UI\Window\Window.h" />
+    <ClInclude Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -419,10 +418,10 @@
     <ClCompile Include="Src\Application\GameSystem\Audio\AudioManager.cpp" />
     <ClCompile Include="Src\Application\GameSystem\Mouse\Mouse.cpp" />
     <ClCompile Include="Src\Application\GameSystem\TimeSystem\TimeSystem.cpp" />
-    <ClCompile Include="Src\Application\GameSystem\Transition\CameraEffect.cpp" />
     <ClCompile Include="Src\Application\Chikuwa\Core\Chikuwa.cpp" />
     <ClCompile Include="Src\Application\Chikuwa\Core\ChikuwaManager.cpp" />
     <ClCompile Include="Src\Application\UI\Window\Window.cpp" />
+    <ClCompile Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Src\Framework\Shader\inc_KdCommon.hlsli">

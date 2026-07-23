@@ -3,15 +3,45 @@
 
 void ChikuwaManager::Init()
 {
-	Spown();
 }
 
 void ChikuwaManager::Update()
 {
+	if (m_spownTime < kSpownTime)m_spownTime++;
+	else
+	{
+		Spown();
+		m_spownTime = KdRandom::GetInt(0,kSpownTime - 1);
+	}
 
 	if (Mouse::Instance().IsClick()) 
 	{
-		Spown();
+		//ちくわはじく処理
+		Math::Vector2 mousePos = Mouse::Instance().GetClickPos();
+		std::shared_ptr<Chikuwa> hit = nullptr;
+		float minLength = 0.0f;
+		for(auto chikuwa : m_spChikuwaList)
+		{
+			Math::Vector2 chikuwaPos = chikuwa->GetPos();
+			Math::Vector2 distance = chikuwaPos - mousePos;
+			if (abs(distance.x) <= 128 / 2&&
+				abs(distance.y) <= 128 / 2)
+			{
+				float length = distance.Length();
+				if (!hit) {
+					hit = chikuwa;
+					minLength = length;
+					continue;
+				}
+				if (length > minLength)continue;
+				hit = chikuwa;
+				minLength = length;
+			};
+		}
+		if (hit) 
+		{
+			hit->Destory();
+		}
 	}
 
 	//更新処理
@@ -49,11 +79,9 @@ void ChikuwaManager::Spown()
 
 	//生成
 	bool isSpownGood = true;
-	if (0 <= spownRate)isSpownGood = false;
+	if (0 >= spownRate)isSpownGood = false;
 	auto newChikuwa = std::make_shared<Chikuwa>(isSpownGood);
 	newChikuwa->Init();
 	m_spChikuwaList.push_back(newChikuwa);
 
-	//回帰処理
-	//Time::Instance().DelayCall(3, [&]() {Spown(); }, false);
 }
