@@ -5,6 +5,7 @@
 #include "../../Back/Back.h"
 #include "../../UI/UIManager.h"
 #include "../../UI/Window/Window.h"
+#include "../../DialogueManager/DialogueManager.h"
 
 GameScene::~GameScene()
 {
@@ -56,6 +57,7 @@ void GameScene::Init()
 	m_chikuwa = std::make_shared<ChikuwaManager>();
 	m_chikuwa->Init();
 
+	DIALOGUE_MGR.Register("dialogue", "factory_boss_lines");
 	m_back = std::make_shared<Back>();
 	m_back->Init();
 	

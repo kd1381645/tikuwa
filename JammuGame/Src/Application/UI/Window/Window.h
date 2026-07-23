@@ -5,6 +5,16 @@ class Window : public IUIBase
 {
 public:
 
+	struct _dialogue
+	{
+		std::string success;
+		std::string mistake;
+		int tekitou;
+
+		NLOHMANN_DEFINE_TYPE_INTRUSIVE(_dialogue, success, mistake, tekitou)
+	};
+
+
 	Window() {};
 	~Window() {};
 
@@ -14,8 +24,14 @@ public:
 	void Shutdown() override;
 	std::string GetID() const override;
 
+	void ShowLine(const std::string& key);
+
 private:
+
+	_dialogue dialogue = {};
+
 	std::string m_id = "Window";
+	std::string m_text;
 
 	std::shared_ptr<KdTexture> m_texture;	 // 表示する画像
 	Math::Vector2 m_pos = { 0, -260 };       // 表示位置
