@@ -275,6 +275,7 @@
     <ClInclude Include="..\Library\tinygltf\tiny_gltf.h" />
     <ClInclude Include="Src\Application\Chikuwa\Core\Chikuwa.h" />
     <ClInclude Include="Src\Application\Chikuwa\Core\ChikuwaManager.h" />
+    <ClInclude Include="Src\Application\DialogueManager\DialogueManager.h" />
     <ClInclude Include="Src\Application\GameSystem\Audio\AudioManager.h" />
     <ClInclude Include="Src\Application\GameSystem\Mouse\Mouse.h" />
     <ClInclude Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.h" />
@@ -292,6 +293,7 @@
     <ClInclude Include="Src\Application\UI\IUIBase.h" />
     <ClInclude Include="Src\Application\UI\UIManager.h" />
     <ClInclude Include="Src\Application\UI\Window\Window.h" />
+    <ClInclude Include="Src\Application\Utility\Encoding.h" />
     <ClInclude Include="Src\Framework\Direct3D\KdMaterial.h" />
     <ClInclude Include="Src\Framework\Direct3D\Polygon\KdPolygon.h" />
     <ClInclude Include="Src\Framework\Direct3D\Polygon\KdSquarePolygon.h" />
@@ -355,6 +357,7 @@
     <ClCompile Include="Src\Application\Scene\SceneManager.cpp" />
     <ClCompile Include="Src\Application\Scene\TitleScene\TitleScene.cpp" />
     <ClCompile Include="Src\Application\UI\Window\Window.cpp" />
+    <ClCompile Include="Src\Application\Utility\Encoding.cpp" />
     <ClCompile Include="Src\Framework\Direct3D\KdMaterial.cpp">
       <SubType>
       </SubType>

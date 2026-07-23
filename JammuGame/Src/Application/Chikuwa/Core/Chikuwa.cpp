@@ -5,7 +5,7 @@ void Chikuwa::Init()
 {
 	//テクスチャ取得
 	if(m_isGood)m_tex = RES_MGR.GetTexList()->GetTex("TestChikuwa");
-	else m_tex = RES_MGR.GetTexList()->GetTex("TestIsobe");;
+	else m_tex = RES_MGR.GetTexList()->GetTex("TestIsobe");
 	m_pos = {-720,KdRandom::GetFloat(-80.0f,80.0f),0};
 	m_isActive = true;
 }
