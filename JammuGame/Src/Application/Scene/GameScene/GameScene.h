@@ -2,6 +2,7 @@
 
 #include"../BaseScene/BaseScene.h"
 
+class Back;
 class ChikuwaManager;
 
 class GameScene : public BaseScene
@@ -22,4 +23,5 @@ private:
 	void Init()  override;
 
 	std::shared_ptr<ChikuwaManager> m_chikuwa;
+	std::shared_ptr<Back> m_back;
 };

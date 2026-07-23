@@ -273,6 +273,7 @@
     <ClInclude Include="..\Library\tinygltf\stb_image.h" />
     <ClInclude Include="..\Library\tinygltf\stb_image_write.h" />
     <ClInclude Include="..\Library\tinygltf\tiny_gltf.h" />
+    <ClInclude Include="Src\Application\Back\Back.h" />
     <ClInclude Include="Src\Application\Chikuwa\Core\Chikuwa.h" />
     <ClInclude Include="Src\Application\Chikuwa\Core\ChikuwaManager.h" />
     <ClInclude Include="Src\Application\GameSystem\Audio\AudioManager.h" />
@@ -340,6 +341,7 @@
     <ClCompile Include="..\Library\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_tables.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Src\Application\Back\Back.cpp" />
     <ClCompile Include="Src\Application\Chikuwa\Core\Chikuwa.cpp" />
     <ClCompile Include="Src\Application\Chikuwa\Core\ChikuwaManager.cpp" />
     <ClCompile Include="Src\Application\GameSystem\Audio\AudioManager.cpp" />
