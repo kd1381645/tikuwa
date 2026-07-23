@@ -258,6 +258,8 @@
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Users\kd138\Desktop\ゲーム制作課題\ゲームジャム\game\Src\Application\Object\ResultObject\Outcome\Outcome.h" />
+    <ClInclude Include="..\..\..\Users\kd138\Desktop\ゲーム制作課題\ゲームジャム\game\Src\Application\Object\ResultObject\Result\Result.h" />
     <ClInclude Include="..\Library\imgui\imconfig.h" />
     <ClInclude Include="..\Library\imgui\imgui.h" />
     <ClInclude Include="..\Library\imgui\imgui_impl_dx11.h" />
@@ -338,6 +340,8 @@
     <ClInclude Include="src\Framework\Window\KdWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Users\kd138\Desktop\ゲーム制作課題\ゲームジャム\game\Src\Application\Object\ResultObject\Outcome\Outcome.cpp" />
+    <ClCompile Include="..\..\..\Users\kd138\Desktop\ゲーム制作課題\ゲームジャム\game\Src\Application\Object\ResultObject\Result\Result.cpp" />
     <ClCompile Include="..\Library\imgui\imgui.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_demo.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_draw.cpp" />

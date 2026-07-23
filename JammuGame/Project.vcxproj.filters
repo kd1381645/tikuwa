@@ -267,11 +267,13 @@
     <ClInclude Include="Src\Application\UI\Window\Window.h" />
     <ClInclude Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.h" />
     <ClInclude Include="Src\Application\GameSystem\Effect\EffectManager.h" />
-    <ClInclude Include="Src\Application\Object\ResultObject\Outcome\Outcome.h" />
-    <ClInclude Include="Src\Application\Object\ResultObject\Result\Result.h" />
     <ClInclude Include="Src\Application\Object\TitleObject\Switch\Switch.h" />
     <ClInclude Include="Src\Application\Object\TitleObject\Title\Title.h" />
     <ClInclude Include="Src\Application\Scene\ResultScene\ResultScene.h" />
+    <ClInclude Include="..\..\..\Users\kd138\Desktop\ゲーム制作課題\ゲームジャム\game\Src\Application\Object\ResultObject\Outcome\Outcome.h" />
+    <ClInclude Include="..\..\..\Users\kd138\Desktop\ゲーム制作課題\ゲームジャム\game\Src\Application\Object\ResultObject\Result\Result.h" />
+    <ClInclude Include="Src\Application\Object\ResultObject\Outcome\Outcome.h" />
+    <ClInclude Include="Src\Application\Object\ResultObject\Result\Result.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -429,11 +431,13 @@
     <ClCompile Include="Src\Application\UI\Window\Window.cpp" />
     <ClCompile Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.cpp" />
     <ClCompile Include="Src\Application\GameSystem\Effect\EffectManager.cpp" />
-    <ClCompile Include="Src\Application\Object\ResultObject\Outcome\Outcome.cpp" />
-    <ClCompile Include="Src\Application\Object\ResultObject\Result\Result.cpp" />
     <ClCompile Include="Src\Application\Object\TitleObject\Switch\Switch.cpp" />
     <ClCompile Include="Src\Application\Object\TitleObject\Title\Title.cpp" />
     <ClCompile Include="Src\Application\Scene\ResultScene\ResultScene.cpp" />
+    <ClCompile Include="..\..\..\Users\kd138\Desktop\ゲーム制作課題\ゲームジャム\game\Src\Application\Object\ResultObject\Outcome\Outcome.cpp" />
+    <ClCompile Include="..\..\..\Users\kd138\Desktop\ゲーム制作課題\ゲームジャム\game\Src\Application\Object\ResultObject\Result\Result.cpp" />
+    <ClCompile Include="Src\Application\Object\ResultObject\Outcome\Outcome.cpp" />
+    <ClCompile Include="Src\Application\Object\ResultObject\Result\Result.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Src\Framework\Shader\inc_KdCommon.hlsli">
