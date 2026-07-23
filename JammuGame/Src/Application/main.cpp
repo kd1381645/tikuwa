@@ -59,6 +59,7 @@ void Application::KdPostUpdate()
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 void Application::PreUpdate()
 {
+	EffectManager::Instance().Update();
 	Mouse::Instance().Update();
 	SceneManager::Instance().PreUpdate();
 }
@@ -125,6 +126,7 @@ void Application::Draw()
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 void Application::PostDraw()
 {
+	EffectManager::Instance().Draw();
 	// 画面のぼかしや被写界深度処理の実施
 	KdShaderManager::Instance().m_postProcessShader.PostEffectProcess();
 
@@ -228,6 +230,7 @@ bool Application::Init(int w, int h)
 	RES_MGR.Init();
 	Mouse::Instance().Init();
 	AudioManager::Instance().Init();
+	EffectManager::Instance().Init();
 	return true;
 }
 

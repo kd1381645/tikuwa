@@ -9,7 +9,8 @@ public:
 	enum class SceneType
 	{
 		Title,
-		Game
+		Game,
+		Result
 	};
 	//enumをハッシュ化
 	struct EnumHush {

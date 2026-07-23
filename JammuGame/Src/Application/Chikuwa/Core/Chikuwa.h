@@ -4,7 +4,10 @@ class Chikuwa : KdGameObject
 {
 public:
 
-	Chikuwa(bool isGood) : m_isGood(isGood){};
+	Chikuwa(bool isGood,float addSpeed) : m_isGood(isGood)
+	{
+		m_speed *= addSpeed;
+	};
 	~Chikuwa() = default;
 
 	void Init();
