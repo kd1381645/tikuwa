@@ -125,3 +125,4 @@
 #include "Application/GameSystem/TimeSystem/TimeSystem.h"
 #include "Application/GameSystem/Mouse/Mouse.h"
 #include "Application/GameSystem/Audio/AudioManager.h"
+#include "Application/GameSystem/Effect/EffectManager.h"

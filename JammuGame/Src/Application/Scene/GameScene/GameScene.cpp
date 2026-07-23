@@ -2,6 +2,7 @@
 #include"../SceneManager.h"
 
 #include "../../Chikuwa/Core/ChikuwaManager.h"
+#include "../../Back/Back.h"
 #include "../../UI/UIManager.h"
 #include "../../UI/Window/Window.h"
 
@@ -27,6 +28,7 @@ void GameScene::PostUpdate()
 
 void GameScene::DrawSprite()
 {
+	m_back->Draw();
 	BaseScene::DrawSprite();
 	m_chikuwa->DrawSprite();
 	
@@ -48,6 +50,9 @@ void GameScene::Init()
 {
 	m_chikuwa = std::make_shared<ChikuwaManager>();
 	m_chikuwa->Init();
+
+	m_back = std::make_shared<Back>();
+	m_back->Init();
 	
 	UIManager::Instance().Register(std::make_shared<Window>());
 }
