@@ -16,10 +16,19 @@ void ChikuwaManager::Update()
 		m_spownTime = KdRandom::GetInt(0,kSpownTime - 1);
 	}
 
+	if (m_speedUp < kSpeedUpTime)m_speedUp++;
+	else 
+	{
+		if(m_addSpeed < 3.0f)m_addSpeed *= 1.01f;
+		m_speedUp = 0;
+	}
+
 	if (Mouse::Instance().IsClick()) 
 	{
-		//ちくわはじく処理
 		Math::Vector2 mousePos = Mouse::Instance().GetClickPos();
+		EffectManager::Instance().CreateEffect(mousePos,10,"A");
+
+		//ちくわはじく処理
 		std::shared_ptr<Chikuwa> hit = nullptr;
 		float minLength = 0.0f;
 		for(auto chikuwa : m_spChikuwaList)
@@ -35,6 +44,7 @@ void ChikuwaManager::Update()
 					minLength = length;
 					continue;
 				}
+
 				if (length > minLength)continue;
 				hit = chikuwa;
 				minLength = length;
@@ -42,6 +52,22 @@ void ChikuwaManager::Update()
 		}
 		if (hit) 
 		{
+			//SE
+			if (hit->IsGood())
+			{
+				AudioManager::Instance().Play(
+					L"Asset/Sounds/SE/Fail.mp3",
+					SoundCategory::SE,
+					0.3f);
+			}
+			else
+			{
+				AudioManager::Instance().Play(
+					L"Asset/Sounds/SE/Success.mp3",
+					SoundCategory::SE,
+					0.8f);
+			}
+
 			hit->Destory();
 
 			// 分割結果に応じてセリフを切り替える
@@ -89,8 +115,7 @@ void ChikuwaManager::Spown()
 	//生成
 	bool isSpownGood = true;
 	if (0 >= spownRate)isSpownGood = false;
-	auto newChikuwa = std::make_shared<Chikuwa>(isSpownGood);
+	auto newChikuwa = std::make_shared<Chikuwa>(isSpownGood,m_addSpeed);
 	newChikuwa->Init();
 	m_spChikuwaList.push_back(newChikuwa);
-
 }

@@ -10,5 +10,38 @@
     },
     "TestIsobe": {
         "fileName": "TestIsobe"
+    },
+    "A": {
+        "fileName": "A"
+    },
+    "B": {
+        "fileName": "B"
+    },
+    "C": {
+        "fileName": "C"
+    },
+    "D": {
+        "fileName": "D"
+    },
+    "E": {
+        "fileName": "E"
+    },
+    "Chikuwa": {
+        "fileName": "Chikuwa"
+    },
+    "BadChikuwa": {
+        "fileName": "BadChikuwa"
+    },
+    "Kyu": {
+        "fileName": "Kyu"
+    },
+    "Kani": {
+        "fileName": "Kani"
+    },
+    "Kama": {
+        "fileName": "Kama"
+    },
+    "Back": {
+        "fileName": "Back"
     }
 }

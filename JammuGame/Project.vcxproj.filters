@@ -268,6 +268,9 @@
     <ClInclude Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.h" />
     <ClInclude Include="Src\Application\DialogueManager\DialogueManager.h" />
     <ClInclude Include="Src\Application\Utility\Encoding.h" />
+    <ClInclude Include="Src\Application\Scene\ResultScene\ResultScene.h" />
+    <ClInclude Include="Src\Application\GameSystem\Effect\EffectManager.h" />
+    <ClInclude Include="Src\Application\Back\Back.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -425,6 +428,9 @@
     <ClCompile Include="Src\Application\UI\Window\Window.cpp" />
     <ClCompile Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.cpp" />
     <ClCompile Include="Src\Application\Utility\Encoding.cpp" />
+    <ClCompile Include="Src\Application\Scene\ResultScene\ResultScene.cpp" />
+    <ClCompile Include="Src\Application\GameSystem\Effect\EffectManager.cpp" />
+    <ClCompile Include="Src\Application\Back\Back.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Src\Framework\Shader\inc_KdCommon.hlsli">
