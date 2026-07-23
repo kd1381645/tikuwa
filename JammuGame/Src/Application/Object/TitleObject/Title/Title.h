@@ -1,0 +1,20 @@
+﻿#pragma once
+
+class Title :public KdGameObject
+{
+public:
+
+	Title() { Init(); };
+	~Title() {};
+
+	void Init()       override;
+	void DrawSprite() override;
+
+private:
+
+	Math::Vector3 m_pos;
+
+	std::shared_ptr<KdTexture> m_tex;
+
+};
+

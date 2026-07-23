@@ -36,10 +36,10 @@ void GameScene::DrawSprite()
 
 void GameScene::Event()
 {
-	if (GetAsyncKeyState('T') & 0x8000)
+	if (GetAsyncKeyState('R') & 0x8000)
 	{
 		SceneManager::Instance().SetNextScene
-		(SceneManager::SceneType::Title);
+		(SceneManager::SceneType::Result);
 
 	}
 }
