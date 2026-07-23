@@ -4,7 +4,7 @@
 #include "../../Chikuwa/Core/ChikuwaManager.h"
 #include "../../UI/UIManager.h"
 #include "../../UI/Window/Window.h"
-//#include "../../Conveyor/Conveyor.h"
+#include "../../Conveyor/Conveyor.h"
 
 GameScene::~GameScene()
 {
@@ -52,20 +52,20 @@ void GameScene::Init()
 	
 	UIManager::Instance().Register(std::make_shared<Window>());
 
-	//// コンベア追加
-	//std::shared_ptr<Conveyor>conveyor;
-	//// 左5個追加
-	//for (float num = 0; num < 1.5; num+=0.5)
-	//{
-	//	conveyor = std::make_shared<Conveyor>();
-	//	conveyor->SetPos({ 0 - num,0,0 });
-	//	m_objList.push_back(conveyor);
-	//}
-	//// 右4個追加
-	//for (float num = 0.5; num < 1.5; num += 0.5)
-	//{
-	//	conveyor = std::make_shared<Conveyor>();
-	//	conveyor->SetPos({ 0 + num,0,0 });
-	//	m_objList.push_back(conveyor);
-	//}
+	// コンベア追加
+	std::shared_ptr<Conveyor>conveyor;
+	// 左5個追加
+	for (float num = 0; num < 1.5; num+=0.5)
+	{
+		conveyor = std::make_shared<Conveyor>();
+		conveyor->SetPos({ 0 - num,0,0 });
+		m_objList.push_back(conveyor);
+	}
+	// 右4個追加
+	for (float num = 0.5; num < 1.5; num += 0.5)
+	{
+		conveyor = std::make_shared<Conveyor>();
+		conveyor->SetPos({ 0 + num,0,0 });
+		m_objList.push_back(conveyor);
+	}
 }
