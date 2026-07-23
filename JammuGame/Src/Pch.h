@@ -120,3 +120,8 @@
 //
 //===============================================
 #include "Framework/KdFramework.h"
+#include "Json.hpp"
+#include "Application/ResourceManager/ResourceManager.h"
+#include "Application/GameSystem/TimeSystem/TimeSystem.h"
+#include "Application/GameSystem/Mouse/Mouse.h"
+#include "Application/GameSystem/Audio/AudioManager.h"

@@ -59,6 +59,7 @@ void Application::KdPostUpdate()
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 void Application::PreUpdate()
 {
+	Mouse::Instance().Update();
 	SceneManager::Instance().PreUpdate();
 }
 
@@ -128,7 +129,10 @@ void Application::PostDraw()
 	KdShaderManager::Instance().m_postProcessShader.PostEffectProcess();
 
 	// 現在のシーンのデバッグ描画
-	SceneManager::Instance().DrawDebug();
+	KdDebugGUI::Instance().GuiProcess();
+		//Time::Instance().renderPerformanceOverlay();
+		//SceneManager::Instance().DrawDebug();
+	
 }
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
@@ -221,6 +225,9 @@ bool Application::Init(int w, int h)
 	// 例えばカーソルを消したい場合
 	//ShowCursor(false);
 
+	RES_MGR.Init();
+	Mouse::Instance().Init();
+	AudioManager::Instance().Init();
 	return true;
 }
 
@@ -322,7 +329,11 @@ void Application::Execute()
 		//
 		//=========================================
 
+		Time::Instance().UpdateTime();
 		m_fpsController.Update();
+		std::string titleBar = "Chikuwa　FPS:" + std::to_string(GetNowFPS());
+		SetWindowTextA(m_window.GetWndHandle(), titleBar.c_str());
+		std::cout << GetNowFPS() << std::endl;
 	}
 
 	//===================================================================
