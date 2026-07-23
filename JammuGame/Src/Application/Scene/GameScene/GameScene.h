@@ -3,13 +3,14 @@
 #include"../BaseScene/BaseScene.h"
 
 class ChikuwaManager;
+class UIManager;
 
 class GameScene : public BaseScene
 {
 public :
 
 	GameScene()  { Init(); }
-	~GameScene() {}
+	~GameScene();
 
 	void Update() override;
 	void PostUpdate() override;
