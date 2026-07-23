@@ -8,7 +8,7 @@ void Conveyor::Init()
 	m_polygon->SetMaterial("Asset/Textures/Conveyor/Conveyor.png");		//SetMaterial関数でテクスチャの読み込み
 
 	// サイズ
-	Math::Matrix scaleMat = Math::Matrix::CreateScale({ -0.5, 1.2, 1 });
+	Math::Matrix scaleMat = Math::Matrix::CreateScale({ -0.5, 1.1, 1 });
 
 	// 奥行き
 	Math::Matrix transMat = Math::Matrix::CreateTranslation({ 0, 0, 0 });
