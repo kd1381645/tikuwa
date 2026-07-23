@@ -39,7 +39,7 @@ public:
 	void Register(const std::string& filePath)
 	{
 		std::string path = ASSET_MGR.GetFilePath(filePath); // 存在確認も兼ねる
-		Register(path, StemOf(path));
+		Register(filePath, StemOf(path));
 	}
 	// ----------------------------------------------------------
 	// JSON ファイルを登録する。
