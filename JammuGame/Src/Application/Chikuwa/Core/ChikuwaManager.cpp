@@ -16,8 +16,10 @@ void ChikuwaManager::Update()
 
 	if (Mouse::Instance().IsClick()) 
 	{
-		//ちくわはじく処理
 		Math::Vector2 mousePos = Mouse::Instance().GetClickPos();
+		EffectManager::Instance().CreateEffect(mousePos,10,"A");
+
+		//ちくわはじく処理
 		std::shared_ptr<Chikuwa> hit = nullptr;
 		float minLength = 0.0f;
 		for(auto chikuwa : m_spChikuwaList)
