@@ -57,7 +57,7 @@ void EffectManager::CreateEffect(Math::Vector2 _pos, int _num, std::string _type
 
 		m_effect[m_nextParticle].m_pos = _pos;
 		m_effect[m_nextParticle].m_move = { KdRandom::GetFloat(-1.0f,1.0f) * 10,KdRandom::GetFloat(-1.0f,1.0f) * 10 };
-		m_effect[m_nextParticle].m_lifeTime = KdRandom::GetInt(5.0f,10.0f);
+		m_effect[m_nextParticle].m_lifeTime = KdRandom::GetInt(20.0f,30.0f);
 		m_effect[m_nextParticle].m_isActive = true;
 		m_effect[m_nextParticle].size = 1.0f;
 		m_effect[m_nextParticle]._type = m_effectType[_type];
