@@ -19,7 +19,8 @@ void Chikuwa::Update()
 	}
 
 	//移動処理
-	m_move = {KdRandom::GetFloat(1.0f, 1.2f) * m_speed,0.0f};
+	if(!m_isDestroy)m_move = {KdRandom::GetFloat(1.0f, 1.2f) * m_speed,0.0f};
+	else { m_move = { 6 * -m_speed,50.0f }; }
 	m_pos += m_move;
 
 	//行列作成
