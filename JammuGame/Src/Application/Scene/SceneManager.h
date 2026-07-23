@@ -4,13 +4,19 @@ class BaseScene;
 
 class SceneManager
 {
-public :
+public:
 
-	// シーン情報
 	enum class SceneType
 	{
 		Title,
-		Game,
+		Game
+	};
+	//enumをハッシュ化
+	struct EnumHush {
+		template <typename T>
+		size_t operator()(T t) const {
+			return static_cast<size_t>(t);
+		}
 	};
 
 	void PreUpdate();
@@ -28,37 +34,26 @@ public :
 		m_nextSceneType = _nextScene;
 	}
 
-	// 現在のシーンのオブジェクトリストを取得
-	const std::list<std::shared_ptr<KdGameObject>>& GetObjList();
-
-	// 現在のシーンにオブジェクトを追加
-	void AddObject(const std::shared_ptr<KdGameObject>& _obj);
-
-private :
+private:
 
 	// マネージャーの初期化
 	// インスタンス生成(アプリ起動)時にコンストラクタで自動実行
-	void Init()
-	{
-		// 開始シーンに切り替え
-		ChangeScene(m_currentSceneType);
-	}
+	void Init();
 
 	// シーン切り替え関数
-	void ChangeScene(SceneType _sceneType);
+	void ChangeScene();
 
 	// 現在のシーンのインスタンスを保持しているポインタ
+	std::unordered_map<SceneType, std::shared_ptr<BaseScene>, EnumHush> m_sceneMap;
 	std::shared_ptr<BaseScene> m_currentScene = nullptr;
-
-	// 現在のシーンの種類を保持している変数
-	SceneType m_currentSceneType = SceneType::Game;
-	
+	//現在のシーンの種類を保持
+	SceneType m_nowSceneType = SceneType::Game;
 	// 次のシーンの種類を保持している変数
-	SceneType m_nextSceneType = m_currentSceneType;
+	SceneType m_nextSceneType = SceneType::Game;
 
 private:
 
-	SceneManager() { Init(); }
+	SceneManager();
 	~SceneManager() {}
 
 public:
