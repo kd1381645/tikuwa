@@ -266,6 +266,7 @@
     <ClInclude Include="Src\Application\GameSystem\Transition\CameraEffect.h" />
     <ClInclude Include="Src\Application\Chikuwa\Core\Chikuwa.h" />
     <ClInclude Include="Src\Application\Chikuwa\Core\ChikuwaManager.h" />
+    <ClInclude Include="Src\Application\UI\Window\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -421,6 +422,7 @@
     <ClCompile Include="Src\Application\GameSystem\Transition\CameraEffect.cpp" />
     <ClCompile Include="Src\Application\Chikuwa\Core\Chikuwa.cpp" />
     <ClCompile Include="Src\Application\Chikuwa\Core\ChikuwaManager.cpp" />
+    <ClCompile Include="Src\Application\UI\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Src\Framework\Shader\inc_KdCommon.hlsli">
