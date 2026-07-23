@@ -227,7 +227,6 @@ bool Application::Init(int w, int h)
 
 	RES_MGR.Init();
 	Mouse::Instance().Init();
-	CameraEffect::Instance().InitBuffer();
 	AudioManager::Instance().Init();
 	return true;
 }
