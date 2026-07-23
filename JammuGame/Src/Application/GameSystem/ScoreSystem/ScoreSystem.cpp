@@ -2,47 +2,63 @@
 
 void ScoreSystem::Init()
 {
+	// jsonファイルを直接更新した場合のコールバック内容を登録
 	RES_MGR.GetDataList()->SetOnReload(Key::Score, [this](const nlohmann::json& _json) 
 	{
-		m_scoreSystemSettingData.timeScoreRate = _json["timeScoreRate"];
+		m_scoreSystemSettingData = _json.get<ScoreSystemSettingData>();
 	});
 
 	RES_MGR.GetDataList()->SetOnReload(Key::Highscore, [this](const nlohmann::json& _json)
 	{
-		m_highscoreData.highscore = _json[Key::Highscore];
+		m_highscoreData = _json.get<HighscoreData>();
 	});
 
-	LoadScoreSetting();
+	LoadScoreSetting(); 
 	LoadHighScore();
 
 	m_currentScore	= 0;
 	m_finalScore	= 0;
 	m_isNewRecord	= false;
+	m_isFinalized	= false;
 }
 
 void ScoreSystem::AddScore(int scoreValue)
 {
-	m_currentScore += scoreValue;
+	int previousScore = m_currentScore;
 
-	// カンスト処理
+	m_currentScore += scoreValue;
 	m_currentScore = std::clamp(m_currentScore, m_scoreSystemSettingData.minScore, m_scoreSystemSettingData.maxScore);
 
+	// 実際に加算された値（カンストで削られた分を除いた差分）
+	int actualAddedValue = m_currentScore - previousScore;
+
 	// スコア変動を通知
-	if (m_onScoreChanged) 
+	if (m_onScoreChanged)
 	{
-		m_onScoreChanged(m_currentScore, scoreValue);
+		m_onScoreChanged(m_currentScore, actualAddedValue);
 	}
 }
 
 void ScoreSystem::FinalizeScore()
 {
-	// 時間をそのまま使わずに、係数をかける
+	// 既に確定済みなら多重実行を防ぐ
+	if (m_isFinalized)
+	{
+		return;
+	}
+
+	// エンドレス型ゲームの為、経過時間をスコアへ適用
+	// 数値が大きくなりすぎないように、経過時間へ係数をかける
 	float timeMultiplier = Time::Instance().GetTime() * m_scoreSystemSettingData.timeScoreRate;
+	
+	// 経過時間がおかしい場合でも安全に処理する為に上限下限を設ける
 	timeMultiplier = std::clamp(timeMultiplier, m_scoreSystemSettingData.minTimeMultiplier, m_scoreSystemSettingData.maxTimeMultiplier);
 	
 	// 最終的なスコア確定
-	m_finalScore = m_currentScore * timeMultiplier;
-
+	// timeMultiplierとの乗算結果は小数点以下切り捨てで確定する
+	m_finalScore = static_cast<int>(m_currentScore * timeMultiplier);
+	
+	// 今回のスコア確定処理で新記録かどうかを判定し直すことを保障
 	m_isNewRecord = false;
 
 	// 最高スコア更新
@@ -59,12 +75,16 @@ void ScoreSystem::FinalizeScore()
 	{
 		m_onScoreFinalized(m_finalScore);
 	}
+
+	m_isFinalized = true;
 }
 
 void ScoreSystem::ResetScore()
 {
-	m_currentScore = 0;
-	m_finalScore = 0;
+	m_currentScore	= 0;
+	m_finalScore	= 0;
+	m_isNewRecord	= false;
+	m_isFinalized	= false;
 }
 
 void ScoreSystem::ResetHighScore()
@@ -75,20 +95,30 @@ void ScoreSystem::ResetHighScore()
 
 bool ScoreSystem::PopIsNewRecord()
 {
-	// フラグを保存
 	bool result = m_isNewRecord;
 
 	// 一回きりの処理のためフラグを消費
 	m_isNewRecord = false;
 
-	// 保存したフラグを返す
 	return result;
 }
 
 void ScoreSystem::LoadScoreSetting()
 {
-	RES_MGR.GetDataList()->Register(Path::Score, Key::Score);
-	m_scoreSystemSettingData = RES_MGR.GetDataList()->Get(Key::Score).get<ScoreSystemSettingData>();
+	try
+	{
+		RES_MGR.GetDataList()->Register(Path::Score, Key::Score);
+		m_scoreSystemSettingData = RES_MGR.GetDataList()->Get(Key::Score).get<ScoreSystemSettingData>();
+	}
+	catch (const std::exception&)
+	{
+		// スコア設定用JSONが壊れていたら仮数値をセット
+		m_scoreSystemSettingData.timeScoreRate		= 0.05;
+		m_scoreSystemSettingData.minScore			= std::numeric_limits<int>::min() / 2;
+		m_scoreSystemSettingData.maxScore			= std::numeric_limits<int>::max() / 2;
+		m_scoreSystemSettingData.minTimeMultiplier	= 1.0;
+		m_scoreSystemSettingData.maxTimeMultiplier	= 100.0;
+	}
 }
 
 void ScoreSystem::LoadHighScore()
@@ -98,7 +128,7 @@ void ScoreSystem::LoadHighScore()
 		RES_MGR.GetDataList()->Register(Path::Highscore, Key::Highscore);
 		m_highscoreData = RES_MGR.GetDataList()->Get(Key::Highscore).get<HighscoreData>();
 	}
-	catch (const std::exception& e)
+	catch (const std::exception&)
 	{
 		// ハイスコアJSONが壊れていたら0点で復帰
 		m_highscoreData.highscore = 0;
@@ -120,5 +150,9 @@ void ScoreSystem::SaveHighScore()
 	{
 		output_file << data.dump(4);
 		output_file.close();
+	}
+	else
+	{
+		assert(false && "ハイスコアの保存に失敗しました");
 	}
 }

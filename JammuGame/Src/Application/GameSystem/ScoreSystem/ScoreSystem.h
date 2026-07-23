@@ -45,6 +45,7 @@ namespace Path
 
 class ScoreSystem
 {
+// 外部処理（加算・通知・ゲッター・セッター）
 public:
 
 	void Init();
@@ -55,45 +56,40 @@ public:
 	// 最終的なスコア確定
 	void FinalizeScore();
 
-	// スコアリセット
 	void ResetScore();
-
-	// ハイスコアリセット
 	void ResetHighScore();
 
-	// 現在のスコア取得
 	int GetCurrentScore()	const	{ return m_currentScore; }
-
-	// 過去最高のスコア取得
 	int GetHighScore()		const	{ return m_highscoreData.highscore; }
-
-	// 最終的なスコア取得
 	int GetFinalScore()		const	{ return m_finalScore; }
 
 	bool PopIsNewRecord();
 
 	// スコア変動時処理用コールバック
-	void SetOnScoreChanged(std::function<void(int currentScore, int addedValue)> callback)
+	// addedValue はカンストによる補正後の実加算値
+	void SetOnScoreChanged(const std::function<void(int currentScore, int addedValue)>& callback)
 	{
 		m_onScoreChanged = callback;
 	}
 
 	// スコア最終確定時のコールバック
-	void SetOnScoreFinalized(std::function<void(int finalScore)> callback)
+	// finalScore はハイスコア判定・保存処理の完了後に通知される
+	void SetOnScoreFinalized(const std::function<void(int finalScore)>& callback)
 	{
 		m_onScoreFinalized = callback;
 	}
 
+// 内部処理用変数
 private:
 
-	// 現在のスコア
 	int m_currentScore;
-
-	// 最終的なスコア
 	int m_finalScore;
 
-	// 新記録フラグ
+	// 新記録フラグ（FinalizeScoreで立ち、PopIsNewRecordで消費される）
 	bool m_isNewRecord;
+
+	// FinalizeScore()の多重呼出防御用
+	bool m_isFinalized;
 
 	// 基本設定
 	ScoreSystemSettingData	m_scoreSystemSettingData;
@@ -107,6 +103,7 @@ private:
 	// スコアの最終確定時通知用
 	std::function<void(int finalScore)> m_onScoreFinalized = nullptr;
 
+// 内部処理（データ読み込み・保存）
 private:
 
 	// デフォルト設定読み込み
@@ -118,7 +115,7 @@ private:
 	// 最高スコアを更新
 	void SaveHighScore(); 
 
-// シングルトン
+// 以下シングルトン
 private:
 
 	ScoreSystem()	= default;
