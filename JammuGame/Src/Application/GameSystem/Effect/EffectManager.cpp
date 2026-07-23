@@ -62,8 +62,8 @@ void EffectManager::CreateEffect(Math::Vector2 _pos, int _num, std::string _type
 		m_effect[m_nextParticle].size = 1.0f;
 		m_effect[m_nextParticle]._type = m_effectType[_type];
 		
-		m_effect[i].m_mat =
-			Math::Matrix::CreateScale(m_effect[i].size) *
-			Math::Matrix::CreateTranslation(m_effect[i].m_pos.x, m_effect[i].m_pos.y, 0.0f);
+		m_effect[m_nextParticle].m_mat =
+			Math::Matrix::CreateScale(m_effect[m_nextParticle].size) *
+			Math::Matrix::CreateTranslation(m_effect[m_nextParticle].m_pos.x, m_effect[m_nextParticle].m_pos.y, 0.0f);
 	}
 }
