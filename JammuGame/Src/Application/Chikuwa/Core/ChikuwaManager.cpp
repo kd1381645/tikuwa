@@ -1,5 +1,6 @@
 ﻿#include "ChikuwaManager.h"
 #include "Chikuwa.h"
+#include "../../GameSystem/ScoreSystem/ScoreSystem.h"
 
 void ChikuwaManager::Init()
 {
@@ -41,6 +42,9 @@ void ChikuwaManager::Update()
 		if (hit) 
 		{
 			hit->Destory();
+
+			if(hit->IsGood())ScoreSystem::Instance().AddScore(100);
+			else ScoreSystem::Instance().AddScore(-100);
 		}
 	}
 

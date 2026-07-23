@@ -1,6 +1,6 @@
 {
 	"timeScoreRate"		: 0.05,
-	"minScore"			: -999999999,
+	"minScore"			: 0,
 	"maxScore"			: 999999999,
 	"minTimeMultiplier"	: 1.0,
 	"maxTimeMultiplier"	: 100.0

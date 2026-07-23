@@ -53,18 +53,23 @@ public:
 	// スコアの増減
 	void AddScore(int scoreValue);
 
+	// リザルトシーン移行時か、リザルトシーンのInitで呼ぶ
 	// 最終的なスコア確定
 	void FinalizeScore();
 
+	// ゲームシーンのInitで呼ぶ
 	void ResetScore();
 	void ResetHighScore();
 
+	// 数値を表示したい時に呼ぶ
 	int GetCurrentScore()	const	{ return m_currentScore; }
 	int GetHighScore()		const	{ return m_highscoreData.highscore; }
 	int GetFinalScore()		const	{ return m_finalScore; }
 
+	// 新記録演出を作りたいなら呼ぶ
 	bool PopIsNewRecord();
 
+	// スコア加算演出とかを作るならラムダ式を登録
 	// スコア変動時処理用コールバック
 	// addedValue はカンストによる補正後の実加算値
 	void SetOnScoreChanged(const std::function<void(int currentScore, int addedValue)>& callback)
@@ -72,6 +77,7 @@ public:
 		m_onScoreChanged = callback;
 	}
 
+	// スコア確定演出とかを作るならラムダ式を登録
 	// スコア最終確定時のコールバック
 	// finalScore はハイスコア判定・保存処理の完了後に通知される
 	void SetOnScoreFinalized(const std::function<void(int finalScore)>& callback)

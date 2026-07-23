@@ -114,7 +114,7 @@ void ScoreSystem::LoadScoreSetting()
 	{
 		// スコア設定用JSONが壊れていたら仮数値をセット
 		m_scoreSystemSettingData.timeScoreRate		= 0.05;
-		m_scoreSystemSettingData.minScore			= std::numeric_limits<int>::min() / 2;
+		m_scoreSystemSettingData.minScore			= 0;
 		m_scoreSystemSettingData.maxScore			= std::numeric_limits<int>::max() / 2;
 		m_scoreSystemSettingData.minTimeMultiplier	= 1.0;
 		m_scoreSystemSettingData.maxTimeMultiplier	= 100.0;
