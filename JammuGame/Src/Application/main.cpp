@@ -220,7 +220,8 @@ bool Application::Init(int w, int h)
 	// フォント初期化
 	//===================================================================
 	KdFontManager::Instance().Init(GetWindowHandle());
-	KdFontManager::Instance().AddFont(0, "游ゴシック", 65);
+	KdFontManager::Instance().AddFontResource("Asset/Textures/Fonts/玉ねぎ楷書激無料版v7改.ttf");
+	KdFontManager::Instance().AddFont(0, "玉ねぎ楷書激無料版v7改", 50);
 	
 	//===================================================================
 	// ゲーム固有の初期化

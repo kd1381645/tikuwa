@@ -19,6 +19,8 @@ void Chikuwa::Init()
 
 		auto index = KdRandom::GetInt(0,4);
 
+		m_typeName = bad[index];
+
 		m_tex = RES_MGR.GetTexList()->GetTex(bad[index]);
 	}
 	m_pos = {-720,KdRandom::GetFloat(-80.0f,80.0f),0};

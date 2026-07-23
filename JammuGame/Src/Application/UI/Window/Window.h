@@ -5,16 +5,6 @@ class Window : public IUIBase
 {
 public:
 
-	struct _dialogue
-	{
-		std::string success;
-		std::string mistake;
-		int tekitou;
-
-		NLOHMANN_DEFINE_TYPE_INTRUSIVE(_dialogue, success, mistake, tekitou)
-	};
-
-
 	Window() {};
 	~Window() {};
 
@@ -28,8 +18,6 @@ public:
 
 private:
 
-	_dialogue dialogue = {};
-
 	std::string m_id = "Window";
 	std::string m_text;
 
@@ -37,4 +25,7 @@ private:
 	Math::Vector2 m_pos = { 0, -260 };       // 表示位置
 	int m_w = 1280;							 // 表示したい幅
 	int m_h = 200;							 // 表示したい高さ
+
+	// バウンス演出用の変数 
+	float m_scale = 1.0f;                    // 現在の拡大率
 };
