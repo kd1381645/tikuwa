@@ -33,6 +33,7 @@ void ChikuwaManager::Update()
 					minLength = length;
 					continue;
 				}
+
 				if (length > minLength)continue;
 				hit = chikuwa;
 				minLength = length;
@@ -40,6 +41,22 @@ void ChikuwaManager::Update()
 		}
 		if (hit) 
 		{
+			//SE
+			if (hit->IsGood())
+			{
+				AudioManager::Instance().Play(
+					L"Asset/Sounds/SE/Fail.mp3",
+					SoundCategory::SE,
+					0.3f);
+			}
+			else
+			{
+				AudioManager::Instance().Play(
+					L"Asset/Sounds/SE/Success.mp3",
+					SoundCategory::SE,
+					0.8f);
+			}
+
 			hit->Destory();
 		}
 	}

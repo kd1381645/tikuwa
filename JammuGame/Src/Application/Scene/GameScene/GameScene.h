@@ -21,6 +21,8 @@ private:
 
 	void Event() override;
 	void Init()  override;
+	void Enter() override;
+	void Exit()	 override;
 
 	std::shared_ptr<ChikuwaManager> m_chikuwa;
 };

@@ -15,3 +15,18 @@ void TitleScene::Event()
 void TitleScene::Init()
 {
 }
+
+void TitleScene::Enter()
+{
+	//BGM
+	AudioManager::Instance().Play(
+		L"Asset/Sounds/BGM/TitleBGM.mp3",
+		SoundCategory::BGM,
+		1.0f,
+		true);
+}
+
+void TitleScene::Exit()
+{
+	AudioManager::Instance().StopAll(SoundCategory::BGM);
+}
