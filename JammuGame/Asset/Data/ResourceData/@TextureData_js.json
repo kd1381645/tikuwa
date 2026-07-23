@@ -25,5 +25,20 @@
     },
     "E": {
         "fileName": "E"
+    },
+    "Chikuwa": {
+        "fileName": "Chikuwa"
+    },
+    "BadChikuwa": {
+        "fileName": "BadChikuwa"
+    },
+    "Kyu": {
+        "fileName": "Kyu"
+    },
+    "Kani": {
+        "fileName": "Kani"
+    },
+    "Kama": {
+        "fileName": "Kama"
     }
 }

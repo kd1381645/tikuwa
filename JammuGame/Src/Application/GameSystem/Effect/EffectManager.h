@@ -26,7 +26,7 @@ public:
 private:
 	
 	//エフェクト本体
-	static const int kMaxEffect = 128;
+	static const int kMaxEffect = 4096;
 	EffectData m_effect[kMaxEffect];
 	int m_nextParticle = 0;
 
