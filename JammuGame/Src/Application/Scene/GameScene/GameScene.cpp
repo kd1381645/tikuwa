@@ -44,6 +44,11 @@ void GameScene::Event()
 		(SceneManager::SceneType::Title);
 
 	}
+	if (GetAsyncKeyState('R') & 0x8000)
+	{
+		SceneManager::Instance().SetNextScene
+		(SceneManager::SceneType::Result);
+	}
 }
 
 void GameScene::Init()
@@ -55,4 +60,19 @@ void GameScene::Init()
 	m_back->Init();
 	
 	UIManager::Instance().Register(std::make_shared<Window>());
+}
+
+void GameScene::Enter()
+{
+	//BGM
+	AudioManager::Instance().Play(
+		L"Asset/Sounds/BGM/GameBGM.mp3",
+		SoundCategory::BGM,
+		1.0f,
+		true);
+}
+
+void GameScene::Exit()
+{
+	AudioManager::Instance().StopAll(SoundCategory::BGM);
 }
