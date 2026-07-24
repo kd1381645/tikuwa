@@ -31,8 +31,10 @@ void GameScene::DrawSprite()
 {
 	m_back->Draw();
 	BaseScene::DrawSprite();
+	EffectManager::Instance().Draw();
 	m_chikuwa->DrawSprite();
 	
+
 	// UI
 	UIManager::Instance().DrawAll();
 }

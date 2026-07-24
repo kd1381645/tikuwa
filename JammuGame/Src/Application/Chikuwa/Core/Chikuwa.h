@@ -17,7 +17,7 @@ public:
 	bool IsActive() { return m_isActive; }
 	bool IsGood() { return m_isGood; }
 
-	void Destory() { m_isDestroy = true; }
+	void Destory();
 
 	const Math::Vector2& GetPos(){ return m_pos; }
 

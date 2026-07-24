@@ -41,7 +41,8 @@ void Chikuwa::Update()
 
 	m_pos += m_move;
 
-	if (m_isDestroy)EffectManager::Instance().CreateEffect(m_pos, 10, "C");
+	if (m_isDestroy)EffectManager::Instance().CreateEffect(m_pos, 10, "B");
+	else EffectManager::Instance().CreateEffect(m_pos, 3, "C");
 
 	//行列作成
 	m_mat = Math::Matrix::CreateScale(0.2f) *  Math::Matrix::CreateTranslation(m_pos.x,m_pos.y,0);
@@ -59,4 +60,18 @@ void Chikuwa::Draw()
 	ss.End();
 	//単位行列に戻す
 	ss.SetMatrix(defaultMat);
+}
+
+void Chikuwa::Destory()
+{
+	m_isDestroy = true;
+
+	EffectData e = {};
+	e.m_pos = m_pos;
+	e.m_move = { KdRandom::GetFloat(-1.0f,1.0f) * 20,KdRandom::GetFloat(-1.0f,1.0f) * 20 };
+	e.m_lifeTime = KdRandom::GetInt(25.0f, 30.0f);
+	e.size = 3.0f;
+	e._type = 1;
+
+	EffectManager::Instance().CreateEffect(m_pos, 20, e);
 }

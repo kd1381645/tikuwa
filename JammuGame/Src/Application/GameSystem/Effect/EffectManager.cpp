@@ -18,7 +18,7 @@ void EffectManager::Update()
 		m_effect[i].m_lifeTime--;
 		if (m_effect[i].m_lifeTime <= 0)m_effect[i].m_isActive = false;
 		m_effect[i].m_pos += m_effect[i].m_move;
-		m_effect[i].size *= 0.98f;
+		m_effect[i].size *= 0.90f;
 		m_effect[i].m_mat = 
 			Math::Matrix::CreateScale(m_effect[i].size) * 
 			Math::Matrix::CreateTranslation(m_effect[i].m_pos.x, m_effect[i].m_pos.y,0.0f);
@@ -62,6 +62,22 @@ void EffectManager::CreateEffect(Math::Vector2 _pos, int _num, std::string _type
 		m_effect[m_nextParticle].size = 1.0f;
 		m_effect[m_nextParticle]._type = m_effectType[_type];
 		
+		m_effect[m_nextParticle].m_mat =
+			Math::Matrix::CreateScale(m_effect[m_nextParticle].size) *
+			Math::Matrix::CreateTranslation(m_effect[m_nextParticle].m_pos.x, m_effect[m_nextParticle].m_pos.y, 0.0f);
+	}
+}
+
+void EffectManager::CreateEffect(Math::Vector2 _pos, int _num, EffectData e)
+{
+	
+	for (int i = 0; i < _num; i++) {
+		m_nextParticle++;
+		if (m_nextParticle >= kMaxEffect)m_nextParticle = 0;
+
+		m_effect[m_nextParticle] = e;
+		m_effect[m_nextParticle].m_isActive = true;
+
 		m_effect[m_nextParticle].m_mat =
 			Math::Matrix::CreateScale(m_effect[m_nextParticle].size) *
 			Math::Matrix::CreateTranslation(m_effect[m_nextParticle].m_pos.x, m_effect[m_nextParticle].m_pos.y, 0.0f);

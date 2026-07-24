@@ -22,6 +22,8 @@ public:
 	void Draw();
 
 	void CreateEffect(Math::Vector2 _pos,int _num, std::string _type);
+	void CreateEffect(Math::Vector2 _pos, int _num,EffectData e);
+
 
 private:
 	
