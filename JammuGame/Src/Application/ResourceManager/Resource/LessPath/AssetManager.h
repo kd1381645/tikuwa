@@ -37,7 +37,7 @@ public:
 	const std::string m_assetFilePass = "./Asset";   // Assetファイルの先頭ディレクトリ
 	const std::string m_metaFileExtensionName = ".kdfwmeta"; // 作成するメタファイルの拡張子
 	const std::string m_logFileName = "./Asset\\AssetManager.log";  // Log保存場所
-	const std::string m_fontFilePass = "./Assets\\Texture\\Fonts"; // フォントファイルのディレクトリ(除外用)
+	const std::string m_fontFilePass = "./Asset\\Textures\\Fonts"; // フォントファイルのディレクトリ(除外用)
 private:
 	// 対応する拡張子
 	std::list<std::string> m_supportedExtensions;

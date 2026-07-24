@@ -4,7 +4,10 @@ class Chikuwa : KdGameObject
 {
 public:
 
-	Chikuwa(bool isGood) : m_isGood(isGood){};
+	Chikuwa(bool isGood,float addSpeed) : m_isGood(isGood)
+	{
+		m_speed *= addSpeed;
+	};
 	~Chikuwa() = default;
 
 	void Init();
@@ -17,6 +20,8 @@ public:
 	void Destory() { m_isDestroy = true; }
 
 	const Math::Vector2& GetPos(){ return m_pos; }
+
+	const std::string& GetTypeName() { return m_typeName; }
 
 private:
 
@@ -35,4 +40,6 @@ private:
 	bool m_isGood;
 	bool m_isActive = true;
 	bool m_isDestroy = false;
+
+	std::string m_typeName = "Chikuwa"; // 不純物の種類名（良品ならデフォルトのまま）
 };

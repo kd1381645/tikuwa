@@ -59,6 +59,7 @@ void Application::KdPostUpdate()
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 void Application::PreUpdate()
 {
+	EffectManager::Instance().Update();
 	Mouse::Instance().Update();
 	SceneManager::Instance().PreUpdate();
 }
@@ -125,6 +126,7 @@ void Application::Draw()
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 void Application::PostDraw()
 {
+	EffectManager::Instance().Draw();
 	// 画面のぼかしや被写界深度処理の実施
 	KdShaderManager::Instance().m_postProcessShader.PostEffectProcess();
 
@@ -147,6 +149,8 @@ void Application::DrawSprite()
 		SceneManager::Instance().DrawSprite();
 	}
 	KdShaderManager::Instance().m_spriteShader.End();
+
+	Mouse::Instance().Draw();
 }
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
@@ -218,16 +222,19 @@ bool Application::Init(int w, int h)
 	// フォント初期化
 	//===================================================================
 	KdFontManager::Instance().Init(GetWindowHandle());
+	KdFontManager::Instance().AddFontResource("Asset/Textures/Fonts/玉ねぎ楷書激無料版v7改.ttf");
+	KdFontManager::Instance().AddFont(0, "玉ねぎ楷書激無料版v7改", 50);
 	
 	//===================================================================
 	// ゲーム固有の初期化
 	//===================================================================
 	// 例えばカーソルを消したい場合
-	//ShowCursor(false);
+	ShowCursor(false);
 
 	RES_MGR.Init();
 	Mouse::Instance().Init();
 	AudioManager::Instance().Init();
+	EffectManager::Instance().Init();
 	return true;
 }
 
