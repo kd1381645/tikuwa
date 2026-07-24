@@ -26,8 +26,6 @@ void ResultScene::Init()
 
 }
 
-}
-
 void ResultScene::Enter()
 {
 	//BGM
