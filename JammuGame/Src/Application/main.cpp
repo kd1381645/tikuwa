@@ -126,12 +126,11 @@ void Application::Draw()
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 void Application::PostDraw()
 {
-	EffectManager::Instance().Draw();
 	// 画面のぼかしや被写界深度処理の実施
 	KdShaderManager::Instance().m_postProcessShader.PostEffectProcess();
 
 	// 現在のシーンのデバッグ描画
-	KdDebugGUI::Instance().GuiProcess();
+	//KdDebugGUI::Instance().GuiProcess();
 		//Time::Instance().renderPerformanceOverlay();
 		//SceneManager::Instance().DrawDebug();
 	

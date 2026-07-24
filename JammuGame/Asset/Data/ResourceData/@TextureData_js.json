@@ -41,7 +41,10 @@
     "Kama": {
         "fileName": "Kama"
     },
-    "Back": {
-        "fileName": "Back"
-    }
+	"Back": {
+		"fileName": "Back"
+	},
+	"Start": {
+		"fileName": "start"
+	}
 }
