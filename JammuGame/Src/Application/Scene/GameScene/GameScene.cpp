@@ -6,6 +6,7 @@
 #include "../../UI/ScoreDisplay/Score.h"
 #include "../../GameSystem/ScoreSystem/ScoreSystem.h"
 #include "../../Back/Back.h"
+#include "../../Conveyor/Conveyor.h"
 #include "../../UI/UIManager.h"
 #include "../../UI/Window/Window.h"
 #include "../../DialogueManager/DialogueManager.h"
@@ -18,6 +19,7 @@ GameScene::~GameScene()
 void GameScene::Update()
 {	
 	BaseScene::Update();
+	m_conveyor->Update();
 	m_chikuwa->Update();
 	
 	// UI
@@ -33,6 +35,7 @@ void GameScene::PostUpdate()
 void GameScene::DrawSprite()
 {
 	m_back->Draw();
+	m_conveyor->DrawSprite();
 	BaseScene::DrawSprite();
 	EffectManager::Instance().Draw();
 	m_chikuwa->DrawSprite();
@@ -70,6 +73,8 @@ void GameScene::Init()
 	DIALOGUE_MGR.Register("dialogue", "factory_boss_lines");
 	m_back = std::make_shared<Back>();
 	m_back->Init();
+
+	m_conveyor = std::make_shared<Conveyor>();
 	
 	UIManager::Instance().Register(std::make_shared<Window>());
 }
@@ -78,9 +83,9 @@ void GameScene::Enter()
 {
 	//BGM
 	AudioManager::Instance().Play(
-		L"Asset/Sounds/BGM/GameBGM.mp3",
+		L"Asset/Sounds/BGM/GameBGM.wav",
 		SoundCategory::BGM,
-		1.0f,
+		0.8f,
 		true);
 }
 
