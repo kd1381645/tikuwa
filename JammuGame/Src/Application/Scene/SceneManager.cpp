@@ -3,6 +3,7 @@
 #include "BaseScene/BaseScene.h"
 #include "TitleScene/TitleScene.h"
 #include "GameScene/GameScene.h"
+#include "ResultScene/ResultScene.h"
 
 SceneManager::SceneManager()
 {
@@ -14,6 +15,8 @@ void SceneManager::Init()
 	m_sceneMap = {
 		{SceneType::Title,std::make_shared<TitleScene>()},
 		{SceneType::Game,std::make_shared<GameScene>()},
+		{SceneType::Result,std::make_shared<ResultScene>()},
+
 	};
 
 	// 開始シーンに切り替え

@@ -258,6 +258,8 @@
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Users\kd138\Desktop\ゲーム制作課題\ゲームジャム\game\Src\Application\Object\ResultObject\Outcome\Outcome.h" />
+    <ClInclude Include="..\..\..\Users\kd138\Desktop\ゲーム制作課題\ゲームジャム\game\Src\Application\Object\ResultObject\Result\Result.h" />
     <ClInclude Include="..\Library\imgui\imconfig.h" />
     <ClInclude Include="..\Library\imgui\imgui.h" />
     <ClInclude Include="..\Library\imgui\imgui_impl_dx11.h" />
@@ -273,27 +275,37 @@
     <ClInclude Include="..\Library\tinygltf\stb_image.h" />
     <ClInclude Include="..\Library\tinygltf\stb_image_write.h" />
     <ClInclude Include="..\Library\tinygltf\tiny_gltf.h" />
+    <ClInclude Include="Src\Application\Back\Back.h" />
     <ClInclude Include="Src\Application\Chikuwa\Core\Chikuwa.h" />
     <ClInclude Include="Src\Application\Chikuwa\Core\ChikuwaManager.h" />
+    <ClInclude Include="Src\Application\DialogueManager\DialogueManager.h" />
     <ClInclude Include="Src\Application\GameSystem\Audio\AudioManager.h" />
+    <ClInclude Include="Src\Application\GameSystem\Effect\EffectManager.h" />
     <ClInclude Include="Src\Application\GameSystem\Mouse\Mouse.h" />
     <ClInclude Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.h" />
     <ClInclude Include="Src\Application\GameSystem\TimeSystem\TimeSystem.h" />
     <ClInclude Include="Src\Application\main.h" />
+    <ClInclude Include="Src\Application\Object\ResultObject\Outcome\Outcome.h" />
+    <ClInclude Include="Src\Application\Object\ResultObject\Result\Result.h" />
     <ClInclude Include="Src\Application\ResourceManager\ResourceManager.h" />
     <ClInclude Include="Src\Application\ResourceManager\Resource\DataList\JsonResource.h" />
     <ClInclude Include="Src\Application\ResourceManager\Resource\DataList\JsonResourceManager.h" />
     <ClInclude Include="Src\Application\ResourceManager\Resource\LessPath\AssetManager.h" />
     <ClInclude Include="Src\Application\ResourceManager\Resource\Texture\TextureManager.h" />
+    <ClInclude Include="Src\Application\ResultScene\ResultScene.h" />
     <ClInclude Include="Src\Application\Scene\BaseScene\BaseScene.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\GameScene.h" />
+    <ClInclude Include="Src\Application\Scene\ResultScene\ResultScene.h" />
     <ClInclude Include="Src\Application\Scene\SceneManager.h" />
     <ClInclude Include="Src\Application\Scene\TitleScene\TitleScene.h" />
+    <ClInclude Include="Src\Application\UI\Button\ButtonUI.h" />
+    <ClInclude Include="Src\Application\UI\Button\Button\Button.h" />
+    <ClInclude Include="Src\Application\UI\Component\ButtonComponent.h" />
     <ClInclude Include="Src\Application\UI\IUIBase.h" />
-    <ClInclude Include="Src\Application\UI\ScoreDisplay\AddScore\AddScore.h" />
-    <ClInclude Include="Src\Application\UI\ScoreDisplay\AddScore\Manager\AddScoreManager.h" />
-    <ClInclude Include="Src\Application\UI\ScoreDisplay\CurrentScore\Score.h" />
+    <ClInclude Include="Src\Application\UI\ScoreDisplay\Score.h" />
     <ClInclude Include="Src\Application\UI\UIManager.h" />
+    <ClInclude Include="Src\Application\UI\Window\Window.h" />
+    <ClInclude Include="Src\Application\Utility\Encoding.h" />
     <ClInclude Include="Src\Framework\Direct3D\KdMaterial.h" />
     <ClInclude Include="Src\Framework\Direct3D\Polygon\KdPolygon.h" />
     <ClInclude Include="Src\Framework\Direct3D\Polygon\KdSquarePolygon.h" />
@@ -342,23 +354,32 @@
     <ClCompile Include="..\Library\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_tables.cpp" />
     <ClCompile Include="..\Library\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Src\Application\Back\Back.cpp" />
     <ClCompile Include="Src\Application\Chikuwa\Core\Chikuwa.cpp" />
     <ClCompile Include="Src\Application\Chikuwa\Core\ChikuwaManager.cpp" />
     <ClCompile Include="Src\Application\GameSystem\Audio\AudioManager.cpp" />
+    <ClCompile Include="Src\Application\GameSystem\Effect\EffectManager.cpp" />
     <ClCompile Include="Src\Application\GameSystem\Mouse\Mouse.cpp" />
     <ClCompile Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.cpp" />
     <ClCompile Include="Src\Application\GameSystem\TimeSystem\TimeSystem.cpp" />
     <ClCompile Include="Src\Application\main.cpp" />
+    <ClCompile Include="Src\Application\Object\ResultObject\Outcome\Outcome.cpp" />
+    <ClCompile Include="Src\Application\Object\ResultObject\Result\Result.cpp" />
     <ClCompile Include="Src\Application\ResourceManager\ResourceManager.cpp" />
     <ClCompile Include="Src\Application\ResourceManager\Resource\LessPath\AssetManager.cpp" />
     <ClCompile Include="Src\Application\ResourceManager\Resource\Texture\TextureManager.cpp" />
+    <ClCompile Include="Src\Application\ResultScene\ResultScene.cpp" />
     <ClCompile Include="Src\Application\Scene\BaseScene\BaseScene.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\GameScene.cpp" />
+    <ClCompile Include="Src\Application\Scene\ResultScene\ResultScene.cpp" />
     <ClCompile Include="Src\Application\Scene\SceneManager.cpp" />
     <ClCompile Include="Src\Application\Scene\TitleScene\TitleScene.cpp" />
-    <ClCompile Include="Src\Application\UI\ScoreDisplay\AddScore\AddScore.cpp" />
-    <ClCompile Include="Src\Application\UI\ScoreDisplay\AddScore\Manager\AddScoreManager.cpp" />
-    <ClCompile Include="Src\Application\UI\ScoreDisplay\CurrentScore\Score.cpp" />
+    <ClCompile Include="Src\Application\UI\Button\ButtonUI.cpp" />
+    <ClCompile Include="Src\Application\UI\Button\Button\Button.cpp" />
+    <ClCompile Include="Src\Application\UI\Component\ButtonComponent.cpp" />
+    <ClCompile Include="Src\Application\UI\ScoreDisplay\Score.cpp" />
+    <ClCompile Include="Src\Application\UI\Window\Window.cpp" />
+    <ClCompile Include="Src\Application\Utility\Encoding.cpp" />
     <ClCompile Include="Src\Framework\Direct3D\KdMaterial.cpp">
       <SubType>
       </SubType>

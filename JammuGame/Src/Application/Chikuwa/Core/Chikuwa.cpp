@@ -5,8 +5,26 @@ void Chikuwa::Init()
 {
 	//テクスチャ取得
 	if(m_isGood)m_tex = RES_MGR.GetTexList()->GetTex("TestChikuwa");
-	else m_tex = RES_MGR.GetTexList()->GetTex("TestIsobe");;
+	else m_tex = RES_MGR.GetTexList()->GetTex("TestIsobe");
+	if(m_isGood)m_tex = RES_MGR.GetTexList()->GetTex("Chikuwa");
+	else {
+		std::string bad[5] =
+		{
+			"Kani",
+			"Kama",
+			"TestIsobe",
+			"Kyu",
+			"BadChikuwa"
+		};
+
+		auto index = KdRandom::GetInt(0,4);
+
+		m_typeName = bad[index];
+
+		m_tex = RES_MGR.GetTexList()->GetTex(bad[index]);
+	}
 	m_pos = {-720,KdRandom::GetFloat(-80.0f,80.0f),0};
+	m_move = { KdRandom::GetFloat(1.0f, 1.2f) * m_speed,0.0f };
 	m_isActive = true;
 }
 
@@ -19,9 +37,12 @@ void Chikuwa::Update()
 	}
 
 	//移動処理
-	if(!m_isDestroy)m_move = {KdRandom::GetFloat(1.0f, 1.2f) * m_speed,0.0f};
-	else { m_move = { 6 * -m_speed,50.0f }; }
+	if (m_isDestroy){ m_move = { 6 * -m_speed,50.0f }; }
+
 	m_pos += m_move;
+
+	if (m_isDestroy)EffectManager::Instance().CreateEffect(m_pos, 10, "B");
+	else EffectManager::Instance().CreateEffect(m_pos, 3, "C");
 
 	//行列作成
 	m_mat = Math::Matrix::CreateScale(0.2f) *  Math::Matrix::CreateTranslation(m_pos.x,m_pos.y,0);
@@ -39,4 +60,18 @@ void Chikuwa::Draw()
 	ss.End();
 	//単位行列に戻す
 	ss.SetMatrix(defaultMat);
+}
+
+void Chikuwa::Destory()
+{
+	m_isDestroy = true;
+
+	EffectData e = {};
+	e.m_pos = m_pos;
+	e.m_move = { KdRandom::GetFloat(-1.0f,1.0f) * 20,KdRandom::GetFloat(-1.0f,1.0f) * 20 };
+	e.m_lifeTime = KdRandom::GetInt(25.0f, 30.0f);
+	e.size = 3.0f;
+	e._type = 1;
+
+	EffectManager::Instance().CreateEffect(m_pos, 20, e);
 }

@@ -22,8 +22,10 @@ private:
 	const int kSpownTime = 20;
 	int m_spownTime = 0;
 
-	std::vector<std::shared_ptr<Chikuwa>> m_spChikuwaList = {};
-	int m_badConditonRate = 8;
+	const int kSpeedUpTime = 60 * 5;
+	int m_speedUp = 0;
+	float m_addSpeed = 1.0f;
 
-	Math::Vector2 m_lastClickedPos; // 最後にクリックした位置
+	std::vector<std::shared_ptr<Chikuwa>> m_spChikuwaList = {};
+	int m_badConditonRate = 3;
 };
