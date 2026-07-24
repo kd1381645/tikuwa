@@ -14,6 +14,11 @@ void TitleScene::Event()
 
 void TitleScene::Init()
 {
+	m_tex = std::make_shared<KdTexture>();
+	m_tex->Load("Asset/Textures/Title/Title.png");
+
+	m_Start = std::make_shared<KdTexture>();
+	m_Start->Load("Asset/Textures/Title/@start.png");
 }
 
 void TitleScene::Enter()
@@ -29,4 +34,11 @@ void TitleScene::Enter()
 void TitleScene::Exit()
 {
 	AudioManager::Instance().StopAll(SoundCategory::BGM);
+}
+
+void TitleScene::DrawSprite()
+{
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_tex, 0, 0, 1280, 720);
+
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_Start, -220, -130, 500, 250);
 }
