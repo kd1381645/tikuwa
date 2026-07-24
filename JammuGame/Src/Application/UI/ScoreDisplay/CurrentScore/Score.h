@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "../IUIBase.h"
+#include "../../IUIBase.h"
 
 class Score : public IUIBase
 {

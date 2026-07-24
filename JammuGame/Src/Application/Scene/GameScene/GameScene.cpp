@@ -3,13 +3,15 @@
 
 #include "../../Chikuwa/Core/ChikuwaManager.h"
 #include "../../UI/UIManager.h"
-#include "../../UI/ScoreDisplay/Score.h"
+#include "../../UI/ScoreDisplay/CurrentScore/Score.h"
+#include "../../UI/ScoreDisplay/AddScore/Manager/AddScoreManager.h"
 #include "../../GameSystem/ScoreSystem/ScoreSystem.h"
 
 void GameScene::Update()
 {	
 	BaseScene::Update();
 	m_chikuwa->Update();
+	AddScoreManager::Instance().Update();
 }
 
 void GameScene::PostUpdate()
@@ -23,6 +25,7 @@ void GameScene::DrawSprite()
 	BaseScene::DrawSprite();
 	m_chikuwa->DrawSprite();
 
+	AddScoreManager::Instance().Draw();
 	UIManager::Instance().DrawAll();
 }
 
@@ -38,10 +41,10 @@ void GameScene::Event()
 
 void GameScene::Init()
 {
+	ScoreSystem::Instance().Init();
+
 	m_chikuwa = std::make_shared<ChikuwaManager>();
 	m_chikuwa->Init();
-
-	ScoreSystem::Instance().Init();
 
 	auto score = std::make_shared<Score>();
 	UIManager::Instance().Register(score);

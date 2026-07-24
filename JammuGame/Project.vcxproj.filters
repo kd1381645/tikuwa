@@ -265,7 +265,9 @@
     <ClInclude Include="Src\Application\Chikuwa\Core\Chikuwa.h" />
     <ClInclude Include="Src\Application\Chikuwa\Core\ChikuwaManager.h" />
     <ClInclude Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.h" />
-    <ClInclude Include="Src\Application\UI\ScoreDisplay\Score.h" />
+    <ClInclude Include="Src\Application\UI\ScoreDisplay\CurrentScore\Score.h" />
+    <ClInclude Include="Src\Application\UI\ScoreDisplay\AddScore\AddScore.h" />
+    <ClInclude Include="Src\Application\UI\ScoreDisplay\AddScore\Manager\AddScoreManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -421,7 +423,9 @@
     <ClCompile Include="Src\Application\Chikuwa\Core\Chikuwa.cpp" />
     <ClCompile Include="Src\Application\Chikuwa\Core\ChikuwaManager.cpp" />
     <ClCompile Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.cpp" />
-    <ClCompile Include="Src\Application\UI\ScoreDisplay\Score.cpp" />
+    <ClCompile Include="Src\Application\UI\ScoreDisplay\CurrentScore\Score.cpp" />
+    <ClCompile Include="Src\Application\UI\ScoreDisplay\AddScore\AddScore.cpp" />
+    <ClCompile Include="Src\Application\UI\ScoreDisplay\AddScore\Manager\AddScoreManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Src\Framework\Shader\inc_KdCommon.hlsli">

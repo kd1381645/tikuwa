@@ -1,5 +1,5 @@
 ﻿#include "Score.h"
-#include "../../GameSystem/ScoreSystem/ScoreSystem.h"
+#include "../../../GameSystem/ScoreSystem/ScoreSystem.h"
 
 void Score::Init()
 {
@@ -15,6 +15,7 @@ void Score::Update()
 
 void Score::Draw()
 {
+
 	// 桁数
 	constexpr int digits = 6;
 

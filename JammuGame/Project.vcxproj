@@ -290,7 +290,9 @@
     <ClInclude Include="Src\Application\Scene\SceneManager.h" />
     <ClInclude Include="Src\Application\Scene\TitleScene\TitleScene.h" />
     <ClInclude Include="Src\Application\UI\IUIBase.h" />
-    <ClInclude Include="Src\Application\UI\ScoreDisplay\Score.h" />
+    <ClInclude Include="Src\Application\UI\ScoreDisplay\AddScore\AddScore.h" />
+    <ClInclude Include="Src\Application\UI\ScoreDisplay\AddScore\Manager\AddScoreManager.h" />
+    <ClInclude Include="Src\Application\UI\ScoreDisplay\CurrentScore\Score.h" />
     <ClInclude Include="Src\Application\UI\UIManager.h" />
     <ClInclude Include="Src\Framework\Direct3D\KdMaterial.h" />
     <ClInclude Include="Src\Framework\Direct3D\Polygon\KdPolygon.h" />
@@ -354,7 +356,9 @@
     <ClCompile Include="Src\Application\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Src\Application\Scene\SceneManager.cpp" />
     <ClCompile Include="Src\Application\Scene\TitleScene\TitleScene.cpp" />
-    <ClCompile Include="Src\Application\UI\ScoreDisplay\Score.cpp" />
+    <ClCompile Include="Src\Application\UI\ScoreDisplay\AddScore\AddScore.cpp" />
+    <ClCompile Include="Src\Application\UI\ScoreDisplay\AddScore\Manager\AddScoreManager.cpp" />
+    <ClCompile Include="Src\Application\UI\ScoreDisplay\CurrentScore\Score.cpp" />
     <ClCompile Include="Src\Framework\Direct3D\KdMaterial.cpp">
       <SubType>
       </SubType>

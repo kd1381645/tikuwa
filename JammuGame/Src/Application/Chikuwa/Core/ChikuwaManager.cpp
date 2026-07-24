@@ -1,9 +1,17 @@
 ﻿#include "ChikuwaManager.h"
 #include "Chikuwa.h"
 #include "../../GameSystem/ScoreSystem/ScoreSystem.h"
+#include "../../UI/UIManager.h"
+#include "../../UI/ScoreDisplay/AddScore/AddScore.h"
+#include "../../UI/ScoreDisplay/AddScore/Manager/AddScoreManager.h"
 
 void ChikuwaManager::Init()
 {
+	ScoreSystem::Instance().SetOnScoreChanged([this](int currentScore, int addedValue)
+		{
+			// スコアテキストの表示
+			AddScoreManager::Instance().Add(m_lastClickedPos, addedValue);
+		});
 }
 
 void ChikuwaManager::Update()
@@ -43,8 +51,9 @@ void ChikuwaManager::Update()
 		{
 			hit->Destory();
 
-			if(hit->IsGood())ScoreSystem::Instance().AddScore(100);
-			else ScoreSystem::Instance().AddScore(-100);
+			m_lastClickedPos = mousePos;
+			int scoreValue = hit->IsGood() ? -100 : 100;
+			ScoreSystem::Instance().AddScore(scoreValue);
 		}
 	}
 
