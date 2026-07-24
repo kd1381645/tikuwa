@@ -286,8 +286,6 @@
     <ClInclude Include="Src\Application\main.h" />
     <ClInclude Include="Src\Application\Object\ResultObject\Outcome\Outcome.h" />
     <ClInclude Include="Src\Application\Object\ResultObject\Result\Result.h" />
-    <ClInclude Include="Src\Application\Object\TitleObject\Switch\Switch.h" />
-    <ClInclude Include="Src\Application\Object\TitleObject\Title\Title.h" />
     <ClInclude Include="Src\Application\ResourceManager\ResourceManager.h" />
     <ClInclude Include="Src\Application\ResourceManager\Resource\DataList\JsonResource.h" />
     <ClInclude Include="Src\Application\ResourceManager\Resource\DataList\JsonResourceManager.h" />
@@ -298,6 +296,9 @@
     <ClInclude Include="Src\Application\Scene\ResultScene\ResultScene.h" />
     <ClInclude Include="Src\Application\Scene\SceneManager.h" />
     <ClInclude Include="Src\Application\Scene\TitleScene\TitleScene.h" />
+    <ClInclude Include="Src\Application\UI\Button\ButtonUI.h" />
+    <ClInclude Include="Src\Application\UI\Button\Button\Button.h" />
+    <ClInclude Include="Src\Application\UI\Component\ButtonComponent.h" />
     <ClInclude Include="Src\Application\UI\IUIBase.h" />
     <ClInclude Include="Src\Application\UI\UIManager.h" />
     <ClInclude Include="Src\Application\UI\Window\Window.h" />
@@ -362,8 +363,6 @@
     <ClCompile Include="Src\Application\main.cpp" />
     <ClCompile Include="Src\Application\Object\ResultObject\Outcome\Outcome.cpp" />
     <ClCompile Include="Src\Application\Object\ResultObject\Result\Result.cpp" />
-    <ClCompile Include="Src\Application\Object\TitleObject\Switch\Switch.cpp" />
-    <ClCompile Include="Src\Application\Object\TitleObject\Title\Title.cpp" />
     <ClCompile Include="Src\Application\ResourceManager\ResourceManager.cpp" />
     <ClCompile Include="Src\Application\ResourceManager\Resource\LessPath\AssetManager.cpp" />
     <ClCompile Include="Src\Application\ResourceManager\Resource\Texture\TextureManager.cpp" />
@@ -372,6 +371,9 @@
     <ClCompile Include="Src\Application\Scene\ResultScene\ResultScene.cpp" />
     <ClCompile Include="Src\Application\Scene\SceneManager.cpp" />
     <ClCompile Include="Src\Application\Scene\TitleScene\TitleScene.cpp" />
+    <ClCompile Include="Src\Application\UI\Button\ButtonUI.cpp" />
+    <ClCompile Include="Src\Application\UI\Button\Button\Button.cpp" />
+    <ClCompile Include="Src\Application\UI\Component\ButtonComponent.cpp" />
     <ClCompile Include="Src\Application\UI\Window\Window.cpp" />
     <ClCompile Include="Src\Framework\Direct3D\KdMaterial.cpp">
       <SubType>

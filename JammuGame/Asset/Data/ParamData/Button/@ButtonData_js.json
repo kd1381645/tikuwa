@@ -1,0 +1,12 @@
+{
+    "start": {
+        "TexSizeX": 128,
+        "TexSizeY": 128,
+        "PosX": 0,
+        "PosY": 0,
+        "AnimX": 0,
+        "AnimY": 0,
+        "Scale": 1,
+        "MaxScale": 1
+    }
+}

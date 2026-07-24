@@ -1,7 +1,7 @@
 ﻿#include "TitleScene.h"
 #include "../SceneManager.h"
-#include"../../Object/TitleObject/Title/Title.h"
-#include"../../Object/TitleObject/Switch/Switch.h"
+#include"../../UI/UIManager.h"
+#include"../../UI/Button/ButtonUI.h"
 
 void TitleScene::Event()
 {
@@ -14,13 +14,34 @@ void TitleScene::Event()
 	}
 }
 
+void TitleScene::DrawSprite()
+{
+
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_Ttex, 0, 0, 1280, 720);
+
+
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_Stex, -220, -130, 500, 250);
+
+}
+
 void TitleScene::Init()
 {
-	std::shared_ptr<Title>title;
-	title = std::make_shared<Title>();
-	m_objList.push_back(title);
+	//タイトル背景
+	m_Ttex = std::make_shared<KdTexture>();
+	m_Ttex->Load("Asset/Textures/Title/Title.png");
 
-	std::shared_ptr<Switch> m_switch;
-	m_switch = std::make_shared<Switch>();
-	m_objList.push_back(m_switch);
+	m_Stex = std::make_shared<KdTexture>();
+	m_Stex->Load("Asset/Textures/Title/@start.png");
+	//auto spButton = std::make_shared<ButtonUI>();
+	//spButton->CreateButton("start", [this]() {StartEvent();});
+	//UIManager::Instance().Register(spButton);
 }
+
+
+//void TitleScene::StartEvent()
+//{
+//	SceneManager::Instance().SetNextScene(
+//		SceneManager::SceneType::Game
+//	);
+//}
+
