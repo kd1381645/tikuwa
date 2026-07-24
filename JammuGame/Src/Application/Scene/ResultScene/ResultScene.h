@@ -15,4 +15,8 @@ private:
 	void Init()  override;
 	void Enter() override;
 	void Exit()	 override;
+	void DrawSprite() override;
+
+	std::shared_ptr<KdTexture> m_tex;
+	std::shared_ptr<KdTexture> m_clear;
 };

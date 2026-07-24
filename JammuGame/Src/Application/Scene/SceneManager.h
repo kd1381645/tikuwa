@@ -35,6 +35,9 @@ public:
 		m_nextSceneType = _nextScene;
 	}
 
+	void SetKeyFlg(bool flg) { m_keyFlg = flg; }
+	bool GetKeyFlg() const { return m_keyFlg; }
+
 private:
 
 	// マネージャーの初期化
@@ -48,10 +51,11 @@ private:
 	std::unordered_map<SceneType, std::shared_ptr<BaseScene>, EnumHush> m_sceneMap;
 	std::shared_ptr<BaseScene> m_currentScene = nullptr;
 	//現在のシーンの種類を保持
-	SceneType m_nowSceneType = SceneType::Game;
+	SceneType m_nowSceneType = SceneType::Title;
 	// 次のシーンの種類を保持している変数
-	SceneType m_nextSceneType = SceneType::Game;
+	SceneType m_nextSceneType = SceneType::Title;
 
+	bool m_keyFlg = true;
 private:
 
 	SceneManager();
