@@ -47,13 +47,13 @@
     dcl_texcoord1 v1  // vin<4,5,6>
     dcl_texcoord2 v2  // vin<7,8>
 
-#line 65 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
+#line 65 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     dp3 r0.x, v1, c15
     dp3 r0.y, v1, c16
     dp3 r0.z, v1, c17
     nrm r1.xyz, r0  // ::worldNormal<0,1,2>
 
-#line 33 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\Lighting.fxh"
+#line 33 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\Lighting.fxh"
     dp3 r0.x, -c4, r1  // ::dotL<0>
     dp3 r0.y, -c5, r1  // ::dotL<1>
     dp3 r0.z, -c6, r1  // ::dotL<2>
@@ -69,15 +69,15 @@
     mov r2.xyz, c2  // Parameters::DiffuseColor<0,1,2>
     mad oT0.xyz, r0, r2, c3  // ::VSEnvMap<0,1,2>
 
-#line 69 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
+#line 69 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     dp4 oPos.z, v0, c20  // ::VSEnvMap<15>
 
-#line 11 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
+#line 11 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.x, v0, c11
     max r0.x, r0.x, c22.x
     min oT1.w, r0.x, c22.y  // ::VSEnvMap<7>
 
-#line 63 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
+#line 63 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     dp4 r0.x, v0, c12  // ::pos_ws<0>
     dp4 r0.y, v0, c13  // ::pos_ws<1>
     dp4 r0.z, v0, c14  // ::pos_ws<2>
@@ -98,10 +98,10 @@
     mad oPos.xy, r0.z, c0, r0  // ::VSEnvMap<13,14>
     mov oPos.w, r0.z  // ::VSEnvMap<16>
 
-#line 43 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\Lighting.fxh"
+#line 43 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\Lighting.fxh"
     mov oT0.w, c2.w  // ::VSEnvMap<3>
 
-#line 75 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
+#line 75 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     mov oT1.xyz, c1.x  // ::VSEnvMap<4,5,6>
 
 #line 182
@@ -159,10 +159,10 @@ ret
 
 const BYTE EnvironmentMapEffect_VSEnvMap[] =
 {
-     68,  88,  66,  67, 198,   0, 
-     34, 205, 164,   2, 231,  14, 
-    149,  89,  12,  87, 204,  56, 
-    195,  11,   1,   0,   0,   0, 
+     68,  88,  66,  67, 210, 181, 
+    219, 227,  59,  58,  57,  48, 
+      3,  63,  22, 198,  53,  90, 
+     70,   0,   1,   0,   0,   0, 
     116,  14,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     144,   8,   0,   0,  92,  13, 
@@ -190,40 +190,40 @@ const BYTE EnvironmentMapEffect_VSEnvMap[] =
     244,   0,   0,   0,  10,   0, 
       0,   0, 184,   4,   0,   0, 
      88,   2,   0,   0,  67,  58, 
-     92, 103,  97, 109, 101, 106, 
-     97, 109,  92, 116, 105, 107, 
-    117, 119,  97,  92,  76, 105, 
-     98, 114,  97, 114, 121,  92, 
-     68, 105, 114, 101,  99, 116, 
-     88,  84,  75,  92,  83, 114, 
-     99,  92,  83, 104,  97, 100, 
-    101, 114, 115,  92,  69, 110, 
-    118, 105, 114, 111, 110, 109, 
-    101, 110, 116,  77,  97, 112, 
-     69, 102, 102, 101,  99, 116, 
-     46, 102, 120,   0,  67,  58, 
-     92, 103,  97, 109, 101, 106, 
-     97, 109,  92, 116, 105, 107, 
-    117, 119,  97,  92,  76, 105, 
-     98, 114,  97, 114, 121,  92, 
-     68, 105, 114, 101,  99, 116, 
-     88,  84,  75,  92,  83, 114, 
-     99,  92,  83, 104,  97, 100, 
-    101, 114, 115,  92,  76, 105, 
-    103, 104, 116, 105, 110, 103, 
-     46, 102, 120, 104,   0,  67, 
-     58,  92, 103,  97, 109, 101, 
-    106,  97, 109,  92, 116, 105, 
-    107, 117, 119,  97,  92,  76, 
-    105,  98, 114,  97, 114, 121, 
-     92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92,  83, 
-    114,  99,  92,  83, 104,  97, 
-    100, 101, 114, 115,  92,  67, 
-    111, 109, 109, 111, 110,  46, 
-    102, 120, 104,   0,  40,   0, 
-      0,   0, 112,   0,   0,   0, 
-    173,   0,   0,   0,   0,   0, 
+     92,  71, 105, 116,  72, 117, 
+     98,  92, 116, 105, 107, 117, 
+    119,  97,  92,  76, 105,  98, 
+    114,  97, 114, 121,  92,  68, 
+    105, 114, 101,  99, 116,  88, 
+     84,  75,  92,  83, 114,  99, 
+     92,  83, 104,  97, 100, 101, 
+    114, 115,  92,  69, 110, 118, 
+    105, 114, 111, 110, 109, 101, 
+    110, 116,  77,  97, 112,  69, 
+    102, 102, 101,  99, 116,  46, 
+    102, 120,   0,  67,  58,  92, 
+     71, 105, 116,  72, 117,  98, 
+     92, 116, 105, 107, 117, 119, 
+     97,  92,  76, 105,  98, 114, 
+     97, 114, 121,  92,  68, 105, 
+    114, 101,  99, 116,  88,  84, 
+     75,  92,  83, 114,  99,  92, 
+     83, 104,  97, 100, 101, 114, 
+    115,  92,  76, 105, 103, 104, 
+    116, 105, 110, 103,  46, 102, 
+    120, 104,   0,  67,  58,  92, 
+     71, 105, 116,  72, 117,  98, 
+     92, 116, 105, 107, 117, 119, 
+     97,  92,  76, 105,  98, 114, 
+     97, 114, 121,  92,  68, 105, 
+    114, 101,  99, 116,  88,  84, 
+     75,  92,  83, 114,  99,  92, 
+     83, 104,  97, 100, 101, 114, 
+    115,  92,  67, 111, 109, 109, 
+    111, 110,  46, 102, 120, 104, 
+      0, 171, 171, 171,  40,   0, 
+      0,   0, 111,   0,   0,   0, 
+    171,   0,   0,   0,   0,   0, 
     255, 255, 180,   5,   0,   0, 
       0,   0, 255, 255, 204,   5, 
       0,   0,   0,   0, 255, 255, 

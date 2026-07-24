@@ -272,6 +272,7 @@
     <ClInclude Include="Src\Application\Scene\ResultScene\ResultScene.h" />
     <ClInclude Include="Src\Application\GameSystem\Effect\EffectManager.h" />
     <ClInclude Include="Src\Application\Back\Back.h" />
+    <ClInclude Include="Src\Application\Conveyor\Conveyor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -433,6 +434,7 @@
     <ClCompile Include="Src\Application\Scene\ResultScene\ResultScene.cpp" />
     <ClCompile Include="Src\Application\GameSystem\Effect\EffectManager.cpp" />
     <ClCompile Include="Src\Application\Back\Back.cpp" />
+    <ClCompile Include="Src\Application\Conveyor\Conveyor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Src\Framework\Shader\inc_KdCommon.hlsli">

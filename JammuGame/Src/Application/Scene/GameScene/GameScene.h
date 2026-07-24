@@ -3,6 +3,7 @@
 #include"../BaseScene/BaseScene.h"
 
 class Back;
+class Conveyor;
 class ChikuwaManager;
 class UIManager;
 
@@ -27,4 +28,5 @@ private:
 
 	std::shared_ptr<ChikuwaManager> m_chikuwa;
 	std::shared_ptr<Back> m_back;
+	std::shared_ptr<Conveyor> m_conveyor;
 };

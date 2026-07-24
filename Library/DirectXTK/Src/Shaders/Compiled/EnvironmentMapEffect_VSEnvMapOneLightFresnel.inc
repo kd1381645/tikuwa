@@ -49,13 +49,13 @@
     dcl_texcoord1 v1  // vin<4,5,6>
     dcl_texcoord2 v2  // vin<7,8>
 
-#line 65 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
+#line 65 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     dp3 r0.x, v1, c11
     dp3 r0.y, v1, c12
     dp3 r0.z, v1, c13
     nrm r1.xyz, r0  // ::worldNormal<0,1,2>
 
-#line 33 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\Lighting.fxh"
+#line 33 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\Lighting.fxh"
     dp3 r0.x, -c4, r1  // ::dotL<0>
 
 #line 36
@@ -67,7 +67,7 @@
     mov r2.xyz, c2  // Parameters::DiffuseColor<0,1,2>
     mad oT0.xyz, r0, r2, c3  // ::VSEnvMapOneLightFresnel<0,1,2>
 
-#line 69 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
+#line 69 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     dp4 oPos.z, v0, c16  // ::VSEnvMapOneLightFresnel<15>
 
 #line 63
@@ -85,12 +85,12 @@
     pow r1.w, r0.x, c1.y
     mul oT1.xyz, r1.w, c1.x  // ::VSEnvMapOneLightFresnel<4,5,6>
 
-#line 11 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
+#line 11 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.x, v0, c7
     max r0.x, r0.x, c18.x
     min oT1.w, r0.x, c18.y  // ::VSEnvMapOneLightFresnel<7>
 
-#line 79 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
+#line 79 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     dp3 r0.x, -r2, r1
     add r0.x, r0.x, r0.x
     mad oT3.xyz, r1, -r0.x, -r2  // ::VSEnvMapOneLightFresnel<10,11,12>
@@ -104,10 +104,10 @@
     mad oPos.xy, r0.z, c0, r0  // ::VSEnvMapOneLightFresnel<13,14>
     mov oPos.w, r0.z  // ::VSEnvMapOneLightFresnel<16>
 
-#line 43 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\Lighting.fxh"
+#line 43 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\Lighting.fxh"
     mov oT0.w, c2.w  // ::VSEnvMapOneLightFresnel<3>
 
-#line 224 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
+#line 224 "C:\GitHub\tikuwa\Library\DirectXTK\Src\Shaders\EnvironmentMapEffect.fx"
     mov oT2.xy, v2  // ::VSEnvMapOneLightFresnel<8,9>
 
 // approximately 41 instruction slots used
@@ -164,10 +164,10 @@ ret
 
 const BYTE EnvironmentMapEffect_VSEnvMapOneLightFresnel[] =
 {
-     68,  88,  66,  67,  48, 117, 
-    230,   6,   6, 177, 219, 183, 
-    142,  30, 245,   6, 185,  50, 
-     72, 102,   1,   0,   0,   0, 
+     68,  88,  66,  67, 119,  36, 
+    185,  94, 212, 154, 203,  34, 
+     25, 137, 228,  11,  73, 227, 
+     45, 178,   1,   0,   0,   0, 
     196,  14,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     232,   8,   0,   0, 172,  13, 
@@ -199,40 +199,40 @@ const BYTE EnvironmentMapEffect_VSEnvMapOneLightFresnel[] =
     244,   0,   0,   0,  11,   0, 
       0,   0, 220,   4,   0,   0, 
      96,   2,   0,   0,  67,  58, 
-     92, 103,  97, 109, 101, 106, 
-     97, 109,  92, 116, 105, 107, 
-    117, 119,  97,  92,  76, 105, 
-     98, 114,  97, 114, 121,  92, 
-     68, 105, 114, 101,  99, 116, 
-     88,  84,  75,  92,  83, 114, 
-     99,  92,  83, 104,  97, 100, 
-    101, 114, 115,  92,  69, 110, 
-    118, 105, 114, 111, 110, 109, 
-    101, 110, 116,  77,  97, 112, 
-     69, 102, 102, 101,  99, 116, 
-     46, 102, 120,   0,  67,  58, 
-     92, 103,  97, 109, 101, 106, 
-     97, 109,  92, 116, 105, 107, 
-    117, 119,  97,  92,  76, 105, 
-     98, 114,  97, 114, 121,  92, 
-     68, 105, 114, 101,  99, 116, 
-     88,  84,  75,  92,  83, 114, 
-     99,  92,  83, 104,  97, 100, 
-    101, 114, 115,  92,  76, 105, 
-    103, 104, 116, 105, 110, 103, 
-     46, 102, 120, 104,   0,  67, 
-     58,  92, 103,  97, 109, 101, 
-    106,  97, 109,  92, 116, 105, 
-    107, 117, 119,  97,  92,  76, 
-    105,  98, 114,  97, 114, 121, 
-     92,  68, 105, 114, 101,  99, 
-    116,  88,  84,  75,  92,  83, 
-    114,  99,  92,  83, 104,  97, 
-    100, 101, 114, 115,  92,  67, 
-    111, 109, 109, 111, 110,  46, 
-    102, 120, 104,   0,  40,   0, 
-      0,   0, 112,   0,   0,   0, 
-    173,   0,   0,   0,   0,   0, 
+     92,  71, 105, 116,  72, 117, 
+     98,  92, 116, 105, 107, 117, 
+    119,  97,  92,  76, 105,  98, 
+    114,  97, 114, 121,  92,  68, 
+    105, 114, 101,  99, 116,  88, 
+     84,  75,  92,  83, 114,  99, 
+     92,  83, 104,  97, 100, 101, 
+    114, 115,  92,  69, 110, 118, 
+    105, 114, 111, 110, 109, 101, 
+    110, 116,  77,  97, 112,  69, 
+    102, 102, 101,  99, 116,  46, 
+    102, 120,   0,  67,  58,  92, 
+     71, 105, 116,  72, 117,  98, 
+     92, 116, 105, 107, 117, 119, 
+     97,  92,  76, 105,  98, 114, 
+     97, 114, 121,  92,  68, 105, 
+    114, 101,  99, 116,  88,  84, 
+     75,  92,  83, 114,  99,  92, 
+     83, 104,  97, 100, 101, 114, 
+    115,  92,  76, 105, 103, 104, 
+    116, 105, 110, 103,  46, 102, 
+    120, 104,   0,  67,  58,  92, 
+     71, 105, 116,  72, 117,  98, 
+     92, 116, 105, 107, 117, 119, 
+     97,  92,  76, 105,  98, 114, 
+     97, 114, 121,  92,  68, 105, 
+    114, 101,  99, 116,  88,  84, 
+     75,  92,  83, 114,  99,  92, 
+     83, 104,  97, 100, 101, 114, 
+    115,  92,  67, 111, 109, 109, 
+    111, 110,  46, 102, 120, 104, 
+      0, 171, 171, 171,  40,   0, 
+      0,   0, 111,   0,   0,   0, 
+    171,   0,   0,   0,   0,   0, 
     255, 255, 236,   5,   0,   0, 
       0,   0, 255, 255,   4,   6, 
       0,   0,   0,   0, 255, 255, 

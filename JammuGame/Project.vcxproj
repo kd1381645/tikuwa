@@ -276,6 +276,7 @@
     <ClInclude Include="Src\Application\Back\Back.h" />
     <ClInclude Include="Src\Application\Chikuwa\Core\Chikuwa.h" />
     <ClInclude Include="Src\Application\Chikuwa\Core\ChikuwaManager.h" />
+    <ClInclude Include="Src\Application\Conveyor\Conveyor.h" />
     <ClInclude Include="Src\Application\DialogueManager\DialogueManager.h" />
     <ClInclude Include="Src\Application\GameSystem\Audio\AudioManager.h" />
     <ClInclude Include="Src\Application\GameSystem\Effect\EffectManager.h" />
@@ -349,6 +350,7 @@
     <ClCompile Include="Src\Application\Back\Back.cpp" />
     <ClCompile Include="Src\Application\Chikuwa\Core\Chikuwa.cpp" />
     <ClCompile Include="Src\Application\Chikuwa\Core\ChikuwaManager.cpp" />
+    <ClCompile Include="Src\Application\Conveyor\Conveyor.cpp" />
     <ClCompile Include="Src\Application\GameSystem\Audio\AudioManager.cpp" />
     <ClCompile Include="Src\Application\GameSystem\Effect\EffectManager.cpp" />
     <ClCompile Include="Src\Application\GameSystem\Mouse\Mouse.cpp" />
