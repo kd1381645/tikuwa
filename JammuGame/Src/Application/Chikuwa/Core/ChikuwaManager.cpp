@@ -3,6 +3,7 @@
 
 void ChikuwaManager::Init()
 {
+	CreateSEList();
 }
 
 void ChikuwaManager::Update()
@@ -56,7 +57,14 @@ void ChikuwaManager::Update()
 				AudioManager::Instance().Play(
 					L"Asset/Sounds/SE/Fail.mp3",
 					SoundCategory::SE,
-					0.3f);
+					0.2f);
+
+				//ボイス
+				int se = KdRandom::GetInt(0, 5);
+				AudioManager::Instance().Play(
+					m_chikuwaSE[se],
+					SoundCategory::SE,
+					2.0f);
 			}
 			else
 			{
@@ -109,4 +117,14 @@ void ChikuwaManager::Spown()
 	auto newChikuwa = std::make_shared<Chikuwa>(isSpownGood,m_addSpeed);
 	newChikuwa->Init();
 	m_spChikuwaList.push_back(newChikuwa);
+}
+
+void ChikuwaManager::CreateSEList()
+{
+	for (int i =1; i <= 6; i++)
+	{
+		std::wstring chikuwaSE;
+		chikuwaSE = L"Asset/Sounds/SE/Chikuwa" + std::to_wstring(i) + L".wav";
+		m_chikuwaSE.push_back(chikuwaSE);
+	}
 }

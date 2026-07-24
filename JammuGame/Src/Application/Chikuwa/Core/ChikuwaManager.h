@@ -19,6 +19,10 @@ public:
 
 private:
 
+	//追加
+	void CreateSEList();
+	std::vector<std::wstring> m_chikuwaSE = {};
+
 	const int kSpownTime = 20;
 	int m_spownTime = 0;
 

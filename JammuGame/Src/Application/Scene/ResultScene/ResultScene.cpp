@@ -21,9 +21,9 @@ void ResultScene::Enter()
 {
 	//BGM
 	AudioManager::Instance().Play(
-		L"Asset/Sounds/BGM/ResultBGM.mp3",
+		L"Asset/Sounds/BGM/ResultBGM.wav",
 		SoundCategory::BGM,
-		1.0f,
+		0.8f,
 		true
 	);
 }

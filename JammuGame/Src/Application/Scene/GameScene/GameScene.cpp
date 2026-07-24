@@ -66,9 +66,9 @@ void GameScene::Enter()
 {
 	//BGM
 	AudioManager::Instance().Play(
-		L"Asset/Sounds/BGM/GameBGM.mp3",
+		L"Asset/Sounds/BGM/GameBGM.wav",
 		SoundCategory::BGM,
-		1.0f,
+		0.8f,
 		true);
 }
 
