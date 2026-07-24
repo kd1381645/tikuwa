@@ -9,7 +9,7 @@ void Mouse::Init()
 	m_gameMouse.x = 0.0f;
 	m_gameMouse.y = 0.0f;
 
-	//m_mouseTex = RES_MGR.GetTexList()->GetTex("Cursor");
+	m_mouseTex = RES_MGR.GetTexList()->GetTex("Cursor");
 	//m_reticleTex = RES_MGR.GetTexList()->GetTex("Reticle");
 }
 
@@ -25,16 +25,13 @@ void Mouse::Update()
 
 void Mouse::Draw()
 {
-	Math::Rectangle rc = { 0,0,kImageSize,kImageSize };
+	Math::Rectangle rc = { 0,0,64,64 };
 	KdShaderManager::Instance().m_spriteShader.Begin();
 	KdShaderManager::Instance().m_spriteShader.SetMatrix(Math::Matrix::Identity);
 
-	if (m_isShowMouse) {
-		KdShaderManager::Instance().m_spriteShader.DrawTex(m_mouseTex, GetScreenPos().x, GetScreenPos().y, &rc);
-	}
-	else {
-		KdShaderManager::Instance().m_spriteShader.DrawTex(m_reticleTex, 0, 0, &rc);
-	}
+	
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_mouseTex, GetScreenPos().x, GetScreenPos().y, &rc);
+
 	KdShaderManager::Instance().m_spriteShader.End();
 }
 
