@@ -60,9 +60,9 @@ void ChikuwaManager::Update()
 					0.2f);
 
 				//ボイス
-				int se = KdRandom::GetInt(0, 5);
+				int voice = KdRandom::GetInt(0, 5);
 				AudioManager::Instance().Play(
-					m_chikuwaSE[se],
+					m_chikuwaSE[voice],
 					SoundCategory::SE,
 					2.0f);
 			}
