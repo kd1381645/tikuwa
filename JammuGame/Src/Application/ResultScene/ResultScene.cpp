@@ -1,7 +1,7 @@
 ﻿#include "ResultScene.h"
-#include "../SceneManager.h"
-#include"../../Object/ResultObject/Result/Result.h"
-#include"../../Object/ResultObject/Outcome/Outcome.h"
+#include "../Scene/SceneManager.h"
+#include"../Object/ResultObject/Result/Result.h"
+#include"../Object/ResultObject/Outcome/Outcome.h"
 
 void ResultScene::Event()
 {
