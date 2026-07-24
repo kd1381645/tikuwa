@@ -8,17 +8,29 @@
 
 void ResultScene::Event()
 {
+	bool m_keyFlg = SceneManager::Instance().GetKeyFlg();
+
 	if (GetAsyncKeyState(VK_RETURN) & 0x8000)
 	{
-		SceneManager::Instance().SetNextScene
-		(
-			SceneManager::SceneType::Title
-		);
+		if (m_keyFlg == false)
+		{
+			SceneManager::Instance().SetNextScene
+			(
+				SceneManager::SceneType::Title
+			);
+		}
+		SceneManager::Instance().SetKeyFlg(true);
+	}
+	else
+	{
+		SceneManager::Instance().SetKeyFlg(false);
 	}
 }
 
 void ResultScene::Init()
 {
+	m_tex = std::make_shared<KdTexture>();
+	m_tex->Load("Asset/Textures/Result/Result.png");
 	std::shared_ptr<Result>result;
 	result = std::make_shared<Result>();
 	m_objList.push_back(result);
@@ -28,6 +40,8 @@ void ResultScene::Init()
 	m_objList.push_back(outcome);
 
 	
+	m_clear = std::make_shared<KdTexture>();
+	m_clear->Load("Asset/Textures/Result/gameclear.png");
 }
 
 void ResultScene::Enter()
@@ -41,9 +55,9 @@ void ResultScene::Enter()
 	UIManager::Instance().Register(score);
 	//BGM
 	AudioManager::Instance().Play(
-		L"Asset/Sounds/BGM/ResultBGM.mp3",
+		L"Asset/Sounds/BGM/ResultBGM.wav",
 		SoundCategory::BGM,
-		1.0f,
+		0.8f,
 		true
 	);
 }
@@ -57,4 +71,6 @@ void ResultScene::DrawSprite()
 {
 	BaseScene::DrawSprite();
 	UIManager::Instance().DrawAll();
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_tex, 0, 0, 1280, 720);
+	KdShaderManager::Instance().m_spriteShader.DrawTex(m_clear, 0, 100, 500, 250);
 }

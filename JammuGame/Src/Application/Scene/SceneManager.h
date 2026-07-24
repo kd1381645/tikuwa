@@ -35,6 +35,9 @@ public:
 		m_nextSceneType = _nextScene;
 	}
 
+	void SetKeyFlg(bool flg) { m_keyFlg = flg; }
+	bool GetKeyFlg() const { return m_keyFlg; }
+
 private:
 
 	// マネージャーの初期化
@@ -52,6 +55,7 @@ private:
 	// 次のシーンの種類を保持している変数
 	SceneType m_nextSceneType = SceneType::Title;
 
+	bool m_keyFlg = true;
 private:
 
 	SceneManager();
