@@ -9,10 +9,17 @@ public :
 	TitleScene()  { Init(); }
 	~TitleScene() {}
 
+	void DrawSprite() override;
+	//void StartEvent();
+
+
 private :
 
 	void Event() override;
 	void Init()  override;
-	void Enter() override;
-	void Exit()	 override;
+
+	std::shared_ptr<KdTexture> m_Ttex;
+	std::shared_ptr<KdTexture> m_Stex;
+
+
 };
