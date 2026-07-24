@@ -1,5 +1,8 @@
 ﻿#include "ChikuwaManager.h"
 #include "Chikuwa.h"
+#include "../../GameSystem/ScoreSystem/ScoreSystem.h"
+#include "../../UI/UIManager.h"
+#include "../../UI/Window/Window.h"
 
 void ChikuwaManager::Init()
 {
@@ -75,6 +78,15 @@ void ChikuwaManager::Update()
 			}
 
 			hit->Destory();
+
+			if(hit->IsGood())ScoreSystem::Instance().AddScore(100);
+			else ScoreSystem::Instance().AddScore(-100);
+			// 分割結果に応じてセリフを切り替える
+			auto window = UIManager::Instance().Get<Window>("Window");
+			if (window)
+			{
+				window->ShowLine(hit->IsGood() ? "mistake" : hit->GetTypeName());
+			}
 		}
 	}
 
