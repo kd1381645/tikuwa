@@ -20,4 +20,3 @@ private:
 	std::shared_ptr<KdTexture> m_tex;
 	std::shared_ptr<KdTexture> m_clear;
 };
-};

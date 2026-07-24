@@ -281,6 +281,7 @@
     <ClInclude Include="Src\Application\ResultScene\ResultScene.h" />
     <ClInclude Include="..\..\..\Users\kd138\Desktop\ゲーム制作課題\ゲームジャム\game\Src\Application\Object\ResultObject\Outcome\Outcome.h" />
     <ClInclude Include="..\..\..\Users\kd138\Desktop\ゲーム制作課題\ゲームジャム\game\Src\Application\Object\ResultObject\Result\Result.h" />
+    <ClInclude Include="Src\Application\Conveyor\Conveyor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -449,6 +450,7 @@
     <ClCompile Include="Src\Application\UI\Button\ButtonUI.cpp" />
     <ClCompile Include="Src\Application\UI\Component\ButtonComponent.cpp" />
     <ClCompile Include="Src\Application\ResultScene\ResultScene.cpp" />
+    <ClCompile Include="Src\Application\Conveyor\Conveyor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Src\Framework\Shader\inc_KdCommon.hlsli">

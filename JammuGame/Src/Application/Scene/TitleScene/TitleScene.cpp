@@ -37,9 +37,9 @@ void TitleScene::Enter()
 {
 	//BGM
 	AudioManager::Instance().Play(
-		L"Asset/Sounds/BGM/TitleBGM.mp3",
+		L"Asset/Sounds/BGM/TitleBGM.wav",
 		SoundCategory::BGM,
-		1.0f,
+		0.8f,
 		true);
 }
 
