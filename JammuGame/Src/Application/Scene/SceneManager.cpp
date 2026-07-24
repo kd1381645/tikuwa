@@ -3,7 +3,7 @@
 #include "BaseScene/BaseScene.h"
 #include "TitleScene/TitleScene.h"
 #include "GameScene/GameScene.h"
-#include"ResultScene/ResultScene.h"
+#include "ResultScene/ResultScene.h"
 
 SceneManager::SceneManager()
 {

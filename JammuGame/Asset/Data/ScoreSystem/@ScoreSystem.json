@@ -1,5 +1,7 @@
 {
-	"timeScoreRate": 0.01,
-	"minTimeMultiplier": 1.0,
-	"maxTimeMultiplier": 100.0
+	"timeScoreRate"		: 0.05,
+	"minScore"			: 0,
+	"maxScore"			: 999999999,
+	"minTimeMultiplier"	: 1.0,
+	"maxTimeMultiplier"	: 100.0
 }

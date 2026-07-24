@@ -4,6 +4,8 @@
 void Chikuwa::Init()
 {
 	//テクスチャ取得
+	if(m_isGood)m_tex = RES_MGR.GetTexList()->GetTex("TestChikuwa");
+	else m_tex = RES_MGR.GetTexList()->GetTex("TestIsobe");
 	if(m_isGood)m_tex = RES_MGR.GetTexList()->GetTex("Chikuwa");
 	else {
 		std::string bad[5] =
@@ -16,6 +18,8 @@ void Chikuwa::Init()
 		};
 
 		auto index = KdRandom::GetInt(0,4);
+
+		m_typeName = bad[index];
 
 		m_tex = RES_MGR.GetTexList()->GetTex(bad[index]);
 	}

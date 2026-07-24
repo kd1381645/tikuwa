@@ -37,11 +37,17 @@ void TitleScene::Init()
 	//UIManager::Instance().Register(spButton);
 }
 
+void TitleScene::Enter()
+{
+	//BGM
+	AudioManager::Instance().Play(
+		L"Asset/Sounds/BGM/TitleBGM.mp3",
+		SoundCategory::BGM,
+		1.0f,
+		true);
+}
 
-//void TitleScene::StartEvent()
-//{
-//	SceneManager::Instance().SetNextScene(
-//		SceneManager::SceneType::Game
-//	);
-//}
-
+void TitleScene::Exit()
+{
+	AudioManager::Instance().StopAll(SoundCategory::BGM);
+}

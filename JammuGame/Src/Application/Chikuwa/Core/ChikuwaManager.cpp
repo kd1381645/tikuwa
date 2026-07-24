@@ -1,5 +1,8 @@
 ﻿#include "ChikuwaManager.h"
 #include "Chikuwa.h"
+#include "../../GameSystem/ScoreSystem/ScoreSystem.h"
+#include "../../UI/UIManager.h"
+#include "../../UI/Window/Window.h"
 
 void ChikuwaManager::Init()
 {
@@ -42,6 +45,7 @@ void ChikuwaManager::Update()
 					minLength = length;
 					continue;
 				}
+
 				if (length > minLength)continue;
 				hit = chikuwa;
 				minLength = length;
@@ -49,7 +53,32 @@ void ChikuwaManager::Update()
 		}
 		if (hit) 
 		{
+			//SE
+			if (hit->IsGood())
+			{
+				AudioManager::Instance().Play(
+					L"Asset/Sounds/SE/Fail.mp3",
+					SoundCategory::SE,
+					0.3f);
+			}
+			else
+			{
+				AudioManager::Instance().Play(
+					L"Asset/Sounds/SE/Success.mp3",
+					SoundCategory::SE,
+					0.8f);
+			}
+
 			hit->Destory();
+
+			if(hit->IsGood())ScoreSystem::Instance().AddScore(100);
+			else ScoreSystem::Instance().AddScore(-100);
+			// 分割結果に応じてセリフを切り替える
+			auto window = UIManager::Instance().Get<Window>("Window");
+			if (window)
+			{
+				window->ShowLine(hit->IsGood() ? "mistake" : hit->GetTypeName());
+			}
 		}
 	}
 

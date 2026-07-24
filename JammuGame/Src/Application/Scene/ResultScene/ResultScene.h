@@ -4,13 +4,15 @@
 
 class ResultScene : public BaseScene
 {
-public :
+public:
 
-	ResultScene()  { Init(); }
+	ResultScene() { Init(); }
 	~ResultScene() {}
 
-private :
+private:
 
 	void Event() override;
 	void Init()  override;
+	void Enter() override;
+	void Exit()	 override;
 };
