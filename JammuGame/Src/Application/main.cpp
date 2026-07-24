@@ -149,6 +149,8 @@ void Application::DrawSprite()
 		SceneManager::Instance().DrawSprite();
 	}
 	KdShaderManager::Instance().m_spriteShader.End();
+
+	Mouse::Instance().Draw();
 }
 
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
@@ -225,7 +227,7 @@ bool Application::Init(int w, int h)
 	// ゲーム固有の初期化
 	//===================================================================
 	// 例えばカーソルを消したい場合
-	//ShowCursor(false);
+	ShowCursor(false);
 
 	RES_MGR.Init();
 	Mouse::Instance().Init();
