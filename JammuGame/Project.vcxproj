@@ -294,6 +294,7 @@
     <ClInclude Include="Src\Application\Scene\SceneManager.h" />
     <ClInclude Include="Src\Application\Scene\TitleScene\TitleScene.h" />
     <ClInclude Include="Src\Application\UI\IUIBase.h" />
+    <ClInclude Include="Src\Application\UI\ScoreDisplay\Score.h" />
     <ClInclude Include="Src\Application\UI\UIManager.h" />
     <ClInclude Include="Src\Application\UI\Window\Window.h" />
     <ClInclude Include="Src\Application\Utility\Encoding.h" />
@@ -362,6 +363,7 @@
     <ClCompile Include="Src\Application\Scene\ResultScene\ResultScene.cpp" />
     <ClCompile Include="Src\Application\Scene\SceneManager.cpp" />
     <ClCompile Include="Src\Application\Scene\TitleScene\TitleScene.cpp" />
+    <ClCompile Include="Src\Application\UI\ScoreDisplay\Score.cpp" />
     <ClCompile Include="Src\Application\UI\Window\Window.cpp" />
     <ClCompile Include="Src\Application\Utility\Encoding.cpp" />
     <ClCompile Include="Src\Framework\Direct3D\KdMaterial.cpp">

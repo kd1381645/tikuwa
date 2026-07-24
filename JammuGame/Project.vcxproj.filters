@@ -266,6 +266,7 @@
     <ClInclude Include="Src\Application\Chikuwa\Core\ChikuwaManager.h" />
     <ClInclude Include="Src\Application\UI\Window\Window.h" />
     <ClInclude Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.h" />
+    <ClInclude Include="Src\Application\UI\ScoreDisplay\Score.h" />
     <ClInclude Include="Src\Application\DialogueManager\DialogueManager.h" />
     <ClInclude Include="Src\Application\Utility\Encoding.h" />
     <ClInclude Include="Src\Application\Scene\ResultScene\ResultScene.h" />
@@ -427,6 +428,7 @@
     <ClCompile Include="Src\Application\Chikuwa\Core\ChikuwaManager.cpp" />
     <ClCompile Include="Src\Application\UI\Window\Window.cpp" />
     <ClCompile Include="Src\Application\GameSystem\ScoreSystem\ScoreSystem.cpp" />
+    <ClCompile Include="Src\Application\UI\ScoreDisplay\Score.cpp" />
     <ClCompile Include="Src\Application\Utility\Encoding.cpp" />
     <ClCompile Include="Src\Application\Scene\ResultScene\ResultScene.cpp" />
     <ClCompile Include="Src\Application\GameSystem\Effect\EffectManager.cpp" />
