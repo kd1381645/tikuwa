@@ -29,6 +29,7 @@ private:
 	std::vector<std::shared_ptr<Chikuwa>> m_spChikuwaList = {};
 	int m_badConditonRate = 3;
 
+	Math::Vector2 m_lastClickedPos;
 	//ボイス
 	void CreateSEList();
 	std::vector<std::wstring> m_chikuwaSE;

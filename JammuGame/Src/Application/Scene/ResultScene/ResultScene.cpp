@@ -2,6 +2,9 @@
 #include "../SceneManager.h"
 #include"../../Object/ResultObject/Result/Result.h"
 #include"../../Object/ResultObject/Outcome/Outcome.h"
+#include "../../GameSystem/ScoreSystem/ScoreSystem.h"
+#include "../../UI/ScoreDisplay/CurrentScore/Score.h"
+#include "../../UI/UIManager.h"
 
 void ResultScene::Event()
 {
@@ -36,12 +39,20 @@ void ResultScene::Init()
 	outcome = std::make_shared<Outcome>();
 	m_objList.push_back(outcome);
 
+	
 	m_clear = std::make_shared<KdTexture>();
 	m_clear->Load("Asset/Textures/Result/gameclear.png");
 }
 
 void ResultScene::Enter()
 {
+	ScoreSystem::Instance().FinalizeScore();
+	auto score = std::make_shared<Score>();
+	score->SetPos({ 0.0f,-100.0f });
+	score->SetScale({ 3.0f,3.0f });
+	score->SetCurrent(false);
+	score->SetColor({0.8f,0.1f,0.1f,1});
+	UIManager::Instance().Register(score);
 	//BGM
 	AudioManager::Instance().Play(
 		L"Asset/Sounds/BGM/ResultBGM.wav",
@@ -58,6 +69,8 @@ void ResultScene::Exit()
 
 void ResultScene::DrawSprite()
 {
+	BaseScene::DrawSprite();
+	UIManager::Instance().DrawAll();
 	KdShaderManager::Instance().m_spriteShader.DrawTex(m_tex, 0, 0, 1280, 720);
 	KdShaderManager::Instance().m_spriteShader.DrawTex(m_clear, 0, 100, 500, 250);
 }

@@ -20,6 +20,8 @@ void ScoreSystem::Init()
 	m_finalScore	= 0;
 	m_isNewRecord	= false;
 	m_isFinalized	= false;
+	m_onScoreChanged = nullptr;
+	m_onScoreFinalized = nullptr;
 }
 
 void ScoreSystem::AddScore(int scoreValue)
@@ -29,13 +31,13 @@ void ScoreSystem::AddScore(int scoreValue)
 	m_currentScore += scoreValue;
 	m_currentScore = std::clamp(m_currentScore, m_scoreSystemSettingData.minScore, m_scoreSystemSettingData.maxScore);
 
-	// 実際に加算された値（カンストで削られた分を除いた差分）
-	int actualAddedValue = m_currentScore - previousScore;
+	//// 実際に加算された値（カンストで削られた分を除いた差分）
+	//int actualAddedValue = m_currentScore - previousScore;
 
 	// スコア変動を通知
 	if (m_onScoreChanged)
 	{
-		m_onScoreChanged(m_currentScore, actualAddedValue);
+		m_onScoreChanged(m_currentScore, scoreValue);
 	}
 }
 

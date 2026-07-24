@@ -1,5 +1,5 @@
 ﻿#include "Score.h"
-#include "../../GameSystem/ScoreSystem/ScoreSystem.h"
+#include "../../../GameSystem/ScoreSystem/ScoreSystem.h"
 
 void Score::Init()
 {
@@ -15,10 +15,19 @@ void Score::Update()
 
 void Score::Draw()
 {
+
 	// 桁数
 	constexpr int digits = 6;
 
-	int score = ScoreSystem::Instance().GetCurrentScore();
+	int score;
+	if (m_isCurrent)
+	{
+		score = ScoreSystem::Instance().GetCurrentScore();
+	}
+	else
+	{
+		score = ScoreSystem::Instance().GetFinalScore();
+	}
 
 	// 数字同士の間隔
 	float spacing = (TexFrameWidthX - TexFrameWidthX / 2) * m_scale.x;
@@ -43,9 +52,10 @@ void Score::Draw()
 		KdShaderManager::Instance().m_spriteShader.DrawTex(
 			m_tex,
 			pos.x, pos.y,
-			TexFrameWidthX * m_scale.x, 
+			TexFrameWidthX * m_scale.x,
 			TexFrameWidthY * m_scale.y,
-			&rect);
+			&rect,
+			&m_color);
 	}
 }
 

@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "../IUIBase.h"
+#include "../../IUIBase.h"
 
 class Score : public IUIBase
 {
@@ -11,8 +11,10 @@ public:
 	void Shutdown()				override;
 	std::string GetID()	const	override;
 
-	void SetPos(const Math::Vector2 pos)		{ m_basePos = pos; }
-	void SetScale(const Math::Vector2 scale)	{ m_scale = scale; }
+	void SetPos(const Math::Vector2 pos) { m_basePos = pos; }
+	void SetScale(const Math::Vector2 scale) { m_scale = scale; }
+	void SetCurrent(const bool isCurrent) { m_isCurrent = isCurrent; }
+	void SetColor(Math::Color color) { m_color = color; }
 
 private:
 
@@ -22,5 +24,8 @@ private:
 	static constexpr int TexFrameWidthY = 64;
 
 	Math::Vector2 m_basePos = { 540.0f,300.0f };
-	Math::Vector2 m_scale	= {1.0f,1.0f};
-};
+	Math::Vector2 m_scale = { 1.0f,1.0f };
+
+	bool m_isCurrent = true;
+	Math::Color m_color;
+}; 

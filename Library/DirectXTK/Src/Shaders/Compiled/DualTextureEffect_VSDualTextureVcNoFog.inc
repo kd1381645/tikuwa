@@ -46,18 +46,18 @@
     dcl_texcoord2 v2  // vin<6,7>
     dcl_texcoord3 v3  // vin<8,9,10,11>
 
-#line 40 "C:\tikuwa\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
+#line 40 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
     dp4 oPos.z, v0, c4  // ::VSDualTextureVcNoFog<10>
 
-#line 83 "C:\tikuwa\tikuwa\Library\DirectXTK\Src\Shaders\DualTextureEffect.fx"
+#line 83 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\DualTextureEffect.fx"
     mul oT0, v3, c1  // ::VSDualTextureVcNoFog<0,1,2,3>
 
-#line 40 "C:\tikuwa\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
+#line 40 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.x, v0, c2  // ::vout<0>
     dp4 r0.y, v0, c3  // ::vout<1>
     dp4 r0.z, v0, c5  // ::vout<3>
 
-#line 74 "C:\tikuwa\tikuwa\Library\DirectXTK\Src\Shaders\DualTextureEffect.fx"
+#line 74 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\DualTextureEffect.fx"
     mad oPos.xy, r0.z, c0, r0  // ::VSDualTextureVcNoFog<8,9>
     mov oPos.w, r0.z  // ::VSDualTextureVcNoFog<11>
 
@@ -89,10 +89,10 @@ ret
 
 const BYTE DualTextureEffect_VSDualTextureVcNoFog[] =
 {
-     68,  88,  66,  67, 153, 217, 
-     66, 225, 207,  88,  48, 210, 
-    192,  68, 235,  87,  86, 178, 
-     81, 127,   1,   0,   0,   0, 
+     68,  88,  66,  67,  71,  90, 
+    214,  55,  99,  92, 249,  78, 
+    223, 166, 222,  36,  74,  18, 
+    242,  93,   1,   0,   0,   0, 
      12,   7,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
     164,   4,   0,   0, 244,   5, 
@@ -118,28 +118,28 @@ const BYTE DualTextureEffect_VSDualTextureVcNoFog[] =
     176,   0,   0,   0,   3,   0, 
       0,   0,   0,   3,   0,   0, 
      24,   1,   0,   0,  67,  58, 
-     92, 116, 105, 107, 117, 119, 
-     97,  92, 116, 105, 107, 117, 
+     92, 103,  97, 109, 101, 106, 
+     97, 109,  92, 116, 105, 107, 
+    117, 119,  97,  92,  76, 105, 
+     98, 114,  97, 114, 121,  92, 
+     68, 105, 114, 101,  99, 116, 
+     88,  84,  75,  92,  83, 114, 
+     99,  92,  83, 104,  97, 100, 
+    101, 114, 115,  92,  67, 111, 
+    109, 109, 111, 110,  46, 102, 
+    120, 104,   0,  67,  58,  92, 
+    103,  97, 109, 101, 106,  97, 
+    109,  92, 116, 105, 107, 117, 
     119,  97,  92,  76, 105,  98, 
     114,  97, 114, 121,  92,  68, 
     105, 114, 101,  99, 116,  88, 
      84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
-    114, 115,  92,  67, 111, 109, 
-    109, 111, 110,  46, 102, 120, 
-    104,   0,  67,  58,  92, 116, 
-    105, 107, 117, 119,  97,  92, 
-    116, 105, 107, 117, 119,  97, 
-     92,  76, 105,  98, 114,  97, 
-    114, 121,  92,  68, 105, 114, 
-    101,  99, 116,  88,  84,  75, 
-     92,  83, 114,  99,  92,  83, 
-    104,  97, 100, 101, 114, 115, 
-     92,  68, 117,  97, 108,  84, 
-    101, 120, 116, 117, 114, 101, 
-     69, 102, 102, 101,  99, 116, 
-     46, 102, 120,   0, 171, 171, 
-     40,   0,   0,   0,  98,   0, 
+    114, 115,  92,  68, 117,  97, 
+    108,  84, 101, 120, 116, 117, 
+    114, 101,  69, 102, 102, 101, 
+     99, 116,  46, 102, 120,   0, 
+     40,   0,   0,   0,  99,   0, 
       0,   0,   0,   0, 255, 255, 
     112,   3,   0,   0,   0,   0, 
     255, 255, 124,   3,   0,   0, 
