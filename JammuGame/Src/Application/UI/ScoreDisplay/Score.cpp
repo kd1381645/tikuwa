@@ -21,7 +21,7 @@ void Score::Draw()
 	int score = ScoreSystem::Instance().GetCurrentScore();
 
 	// 数字同士の間隔
-	float spacing = (TexFrameWidthX - TexFrameWidthX / 2);
+	float spacing = (TexFrameWidthX - TexFrameWidthX / 2) * m_scale.x;
 
 	// 中央揃え
 	Math::Vector2 basePos = Math::Vector2(m_basePos.x - spacing * (digits - 1) * 0.5f, m_basePos.y);
@@ -43,7 +43,8 @@ void Score::Draw()
 		KdShaderManager::Instance().m_spriteShader.DrawTex(
 			m_tex,
 			pos.x, pos.y,
-			TexFrameWidthX, TexFrameWidthY,
+			TexFrameWidthX * m_scale.x, 
+			TexFrameWidthY * m_scale.y,
 			&rect);
 	}
 }
