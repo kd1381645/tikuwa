@@ -302,6 +302,8 @@
     <ClInclude Include="Src\Application\UI\Button\Button\Button.h" />
     <ClInclude Include="Src\Application\UI\Component\ButtonComponent.h" />
     <ClInclude Include="Src\Application\UI\IUIBase.h" />
+    <ClInclude Include="Src\Application\UI\ScoreDisplay\AddScore\AddScore.h" />
+    <ClInclude Include="Src\Application\UI\ScoreDisplay\CurrentScore\Score.h" />
     <ClInclude Include="Src\Application\UI\ScoreDisplay\Score.h" />
     <ClInclude Include="Src\Application\UI\UIManager.h" />
     <ClInclude Include="Src\Application\UI\Window\Window.h" />
@@ -377,7 +379,8 @@
     <ClCompile Include="Src\Application\UI\Button\ButtonUI.cpp" />
     <ClCompile Include="Src\Application\UI\Button\Button\Button.cpp" />
     <ClCompile Include="Src\Application\UI\Component\ButtonComponent.cpp" />
-    <ClCompile Include="Src\Application\UI\ScoreDisplay\Score.cpp" />
+    <ClCompile Include="Src\Application\UI\ScoreDisplay\AddScore\AddScore.cpp" />
+    <ClCompile Include="Src\Application\UI\ScoreDisplay\CurrentScore\Score.cpp" />
     <ClCompile Include="Src\Application\UI\Window\Window.cpp" />
     <ClCompile Include="Src\Application\Utility\Encoding.cpp" />
     <ClCompile Include="Src\Framework\Direct3D\KdMaterial.cpp">

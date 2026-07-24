@@ -3,7 +3,8 @@
 
 #include "../../Chikuwa/Core/ChikuwaManager.h"
 #include "../../UI/UIManager.h"
-#include "../../UI/ScoreDisplay/Score.h"
+#include "../../UI/ScoreDisplay/CurrentScore/Score.h"
+#include "../../UI/ScoreDisplay/AddScore/Manager/AddScoreManager.h"
 #include "../../GameSystem/ScoreSystem/ScoreSystem.h"
 #include "../../Back/Back.h"
 #include "../../UI/UIManager.h"
@@ -19,6 +20,7 @@ void GameScene::Update()
 {	
 	BaseScene::Update();
 	m_chikuwa->Update();
+	AddScoreManager::Instance().Update();
 	
 	// UI
 	UIManager::Instance().UpdateAll(0);
@@ -36,7 +38,7 @@ void GameScene::DrawSprite()
 	BaseScene::DrawSprite();
 	EffectManager::Instance().Draw();
 	m_chikuwa->DrawSprite();
-
+	AddScoreManager::Instance().Draw();
 	
 
 	// UI
@@ -60,12 +62,14 @@ void GameScene::Event()
 
 void GameScene::Init()
 {
+	ScoreSystem::Instance().Init();
+
 	m_chikuwa = std::make_shared<ChikuwaManager>();
 	m_chikuwa->Init();
 
-	ScoreSystem::Instance().Init();
 
 	auto score = std::make_shared<Score>();
+	score->SetColor(kWhiteColor);
 	UIManager::Instance().Register(score);
 	DIALOGUE_MGR.Register("dialogue", "factory_boss_lines");
 	m_back = std::make_shared<Back>();
@@ -86,5 +90,6 @@ void GameScene::Enter()
 
 void GameScene::Exit()
 {
+	UIManager::Instance().Unregister();
 	AudioManager::Instance().StopAll(SoundCategory::BGM);
 }

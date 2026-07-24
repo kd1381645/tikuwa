@@ -48,7 +48,7 @@
     dcl_texcoord2 v2  // vin<6,7>
     dcl_texcoord3 v3  // vin<8,9,10,11>
 
-#line 40 "C:\tikuwa\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
+#line 40 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
     dp4 oPos.z, v0, c5  // ::VSDualTextureVc<14>
 
 #line 11
@@ -56,22 +56,22 @@
     max r0.x, r0.x, c7.x
     min oT1.w, r0.x, c7.y  // ::VSDualTextureVc<7>
 
-#line 67 "C:\tikuwa\tikuwa\Library\DirectXTK\Src\Shaders\DualTextureEffect.fx"
+#line 67 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\DualTextureEffect.fx"
     mul oT0, v3, c1  // ::VSDualTextureVc<0,1,2,3>
 
-#line 40 "C:\tikuwa\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
+#line 40 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
     dp4 r0.x, v0, c3  // ::vout<0>
     dp4 r0.y, v0, c4  // ::vout<1>
     dp4 r0.z, v0, c6  // ::vout<3>
 
-#line 58 "C:\tikuwa\tikuwa\Library\DirectXTK\Src\Shaders\DualTextureEffect.fx"
+#line 58 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\DualTextureEffect.fx"
     mad oPos.xy, r0.z, c0, r0  // ::VSDualTextureVc<12,13>
     mov oPos.w, r0.z  // ::VSDualTextureVc<15>
 
-#line 42 "C:\tikuwa\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
+#line 42 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\Common.fxh"
     mov oT1.xyz, c7.x  // ::VSDualTextureVc<4,5,6>
 
-#line 65 "C:\tikuwa\tikuwa\Library\DirectXTK\Src\Shaders\DualTextureEffect.fx"
+#line 65 "C:\gamejam\tikuwa\Library\DirectXTK\Src\Shaders\DualTextureEffect.fx"
     mov oT2.xy, v1  // ::VSDualTextureVc<8,9>
     mov oT2.zw, v2.xyyx  // ::VSDualTextureVc<11,10>
 
@@ -102,10 +102,10 @@ ret
 
 const BYTE DualTextureEffect_VSDualTextureVc[] =
 {
-     68,  88,  66,  67, 204, 165, 
-    108,  87,   4,  58, 178,  70, 
-    175, 234,  73,  47, 169, 137, 
-    186, 137,   1,   0,   0,   0, 
+     68,  88,  66,  67,  64, 133, 
+     22, 166,   6,  54,  21, 161, 
+     87, 218, 152, 116, 166,  97, 
+    196,  81,   1,   0,   0,   0, 
       0,   8,   0,   0,   4,   0, 
       0,   0,  48,   0,   0,   0, 
      52,   5,   0,   0, 208,   6, 
@@ -131,28 +131,28 @@ const BYTE DualTextureEffect_VSDualTextureVc[] =
     176,   0,   0,   0,   3,   0, 
       0,   0,  60,   3,   0,   0, 
      64,   1,   0,   0,  67,  58, 
-     92, 116, 105, 107, 117, 119, 
-     97,  92, 116, 105, 107, 117, 
+     92, 103,  97, 109, 101, 106, 
+     97, 109,  92, 116, 105, 107, 
+    117, 119,  97,  92,  76, 105, 
+     98, 114,  97, 114, 121,  92, 
+     68, 105, 114, 101,  99, 116, 
+     88,  84,  75,  92,  83, 114, 
+     99,  92,  83, 104,  97, 100, 
+    101, 114, 115,  92,  67, 111, 
+    109, 109, 111, 110,  46, 102, 
+    120, 104,   0,  67,  58,  92, 
+    103,  97, 109, 101, 106,  97, 
+    109,  92, 116, 105, 107, 117, 
     119,  97,  92,  76, 105,  98, 
     114,  97, 114, 121,  92,  68, 
     105, 114, 101,  99, 116,  88, 
      84,  75,  92,  83, 114,  99, 
      92,  83, 104,  97, 100, 101, 
-    114, 115,  92,  67, 111, 109, 
-    109, 111, 110,  46, 102, 120, 
-    104,   0,  67,  58,  92, 116, 
-    105, 107, 117, 119,  97,  92, 
-    116, 105, 107, 117, 119,  97, 
-     92,  76, 105,  98, 114,  97, 
-    114, 121,  92,  68, 105, 114, 
-    101,  99, 116,  88,  84,  75, 
-     92,  83, 114,  99,  92,  83, 
-    104,  97, 100, 101, 114, 115, 
-     92,  68, 117,  97, 108,  84, 
-    101, 120, 116, 117, 114, 101, 
-     69, 102, 102, 101,  99, 116, 
-     46, 102, 120,   0, 171, 171, 
-     40,   0,   0,   0,  98,   0, 
+    114, 115,  92,  68, 117,  97, 
+    108,  84, 101, 120, 116, 117, 
+    114, 101,  69, 102, 102, 101, 
+     99, 116,  46, 102, 120,   0, 
+     40,   0,   0,   0,  99,   0, 
       0,   0,   0,   0, 255, 255, 
     172,   3,   0,   0,   0,   0, 
     255, 255, 196,   3,   0,   0, 
